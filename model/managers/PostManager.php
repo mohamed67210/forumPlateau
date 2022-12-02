@@ -32,14 +32,14 @@ class PostManager extends Manager
         );
     }
 
-    public function newPost(){
+    public function newPost($id)
+    {
         $postManager = new PostManager;
-        $message = filter_input(INPUT_POST,'message',FILTER_SANITIZE_SPECIAL_CHARS);
+        $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS);
 
-        if(isset($_POST['submit'])){
-
-            if($message){
-                $data = ['contenue'=>$message,'user_id'=>1,'topic_id'=>1];
+        if (isset($_POST['submit'])) {
+            if ($message) {
+                $data = ['contenue' => $message, 'user_id' => 1, 'topic_id' => $id];
                 $postManager->add($data);
             }
         }

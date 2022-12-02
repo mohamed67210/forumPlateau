@@ -11,7 +11,33 @@
     margin: 10px;
     color: white;
     padding: 10px;
+    gap: 15px;
 }
 .card a{
+    color: white;
+}
+/* pour list post */
+.card.posts{
+    background-color: brown;
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+}
+.card.posts .left{
+    /* background-color: black; */
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.card.posts .right{
+    background-color: white;
+    width: 60%;
+    color: black;
+    padding: 5px;
+}
+
+.message_container{
+    background-color: red;
     color: white;
 }

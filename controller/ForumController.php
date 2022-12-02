@@ -70,11 +70,12 @@ class ForumController extends AbstractController implements ControllerInterface
     public function findPostbytopic($id)
     {
         $PostManager = new PostManager();
-
+        $topicManager = new TopicManager();
         return [
             "view" => VIEW_DIR . "forum/listPosts.php",
             "data" => [
-                "posts" => $PostManager->findPostbytopic($id)
+                "posts" => $PostManager->findPostbytopic($id),
+                "topics" =>$topicManager->findOneById($id)
             ]
         ];
     }
@@ -102,14 +103,17 @@ class ForumController extends AbstractController implements ControllerInterface
             ]
         ];
     }
-// ajout post on appel la fonction newPost dans postmenager
+    // ajout post on appel la fonction newPost dans postmenager
     public function addPost()
     {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+        }
         $PostManager = new PostManager;
         return [
-            "view" => VIEW_DIR . "forum/listTopics.php",
+            "view" => VIEW_DIR . "forum/listPost.php",
             "data" => [
-                "topics" => $PostManager->newPost()
+                "topics" => $PostManager->newPost($id)
             ]
         ];
     }
