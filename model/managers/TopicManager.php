@@ -41,14 +41,15 @@ class TopicManager extends Manager
 
             $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS);
             $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS);
+            $category = filter_input(INPUT_POST,'category',FILTER_SANITIZE_SPECIAL_CHARS);
             // $data contient tt ce qu'on veut inserer dans la bdd
-            $data = ['title' => $title, 'closed' => '0', 'category_id' => '1', 'user_id' => '1'];
+            $data = ['title' => $title, 'closed' => '0', 'category_id' => $category, 'user_id' => '1'];
 
             if ($title && $message) {
                 // on attribue ala variable last l'execution de la fonction add qui se trouve dans manager 
                 // $last nous retourn le dernier topic inserer dans la base de donnee (on aura besoins par la suite pour l'insertion d'un message)
                 $last = $topicManager->add($data);
-                var_dump($last);
+                // var_dump($last);
 
                 $data = ['contenue' => $message, 'user_id' => 1, 'topic_id' => $last];
                 $postManager->add($data);

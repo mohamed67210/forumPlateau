@@ -1,11 +1,22 @@
 <?php
 
 $topics = $result["data"]['topics'];
-
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+} else {
+    $id = NULL;
+}
 ?>
 
 <h1>liste topics</h1>
-
+<h1>Nouveau Sujet</h1>
+<form action="index.php?ctrl=forum&action=addTopic" method="post">
+    <label>id categorie :<input type="number" name="category" value="<?= $id ?>" /></label>
+    <label>Titre :<input type="text" name="title" /></label>
+    <label>Message :<input type="text" name="message" /></label>
+    <input type="text" name="closed" value="0" hidden readonly />
+    <input type="submit" value="Ajouter" name="submit" />
+</form>
 <?php
 foreach ($topics as $topic) {
     // var_dump($topic);die;
@@ -24,12 +35,3 @@ foreach ($topics as $topic) {
 <?php
 }
 ?>
-<h1>Nouveau Sujet</h1>
-
-<form action="index.php?ctrl=forum&action=addTopic" method="post">
-    <label>categorie :<input type="number" name="category" /></label>
-    <label>Titre :<input type="text" name="title" /></label>
-    <label>Message :<input type="text" name="message" /></label>
-    <input type="text" name="closed" value="0" hidden readonly />
-    <input type="submit" value="Ajouter" name="submit" />
-</form>

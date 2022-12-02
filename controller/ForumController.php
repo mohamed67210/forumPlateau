@@ -75,7 +75,7 @@ class ForumController extends AbstractController implements ControllerInterface
             "view" => VIEW_DIR . "forum/listPosts.php",
             "data" => [
                 "posts" => $PostManager->findPostbytopic($id),
-                "topics" =>$topicManager->findOneById($id)
+                "topics" => $topicManager->findOneById($id)
             ]
         ];
     }

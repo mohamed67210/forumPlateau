@@ -3,14 +3,22 @@
     padding: 0;
     box-sizing: border-box;
 }
-#wrapper{
+
+#wrapper {
     width: 100%;
-    min-height: 100vh;
+    min-height: 120vh;
     background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
 }
-#mainpage{
+
+#mainpage {
     width: 100%;
+    height: 100%;
 }
+
 /* partie header qui se trouve dans layout */
 header {
     border: 1px solid black;
@@ -27,13 +35,15 @@ nav {
     align-items: center;
     width: 100%;
 }
-footer{
+
+footer {
     position: absolute;
     bottom: 0;
     display: flex;
     justify-content: center;
     width: 100%;
 }
+
 .card {
     background-color: rgb(102, 47, 153);
     display: flex;
