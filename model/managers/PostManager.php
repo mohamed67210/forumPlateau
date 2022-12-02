@@ -31,4 +31,17 @@ class PostManager extends Manager
             $this->className
         );
     }
+
+    public function newPost(){
+        $postManager = new PostManager;
+        $message = filter_input(INPUT_POST,'message',FILTER_SANITIZE_SPECIAL_CHARS);
+
+        if(isset($_POST['submit'])){
+
+            if($message){
+                $data = ['contenue'=>$message,'user_id'=>1,'topic_id'=>1];
+                $postManager->add($data);
+            }
+        }
+    }
 }

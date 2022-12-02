@@ -27,9 +27,9 @@ foreach ($topics as $topic) {
 <h1>Nouveau Sujet</h1>
 
 <form action="index.php?ctrl=forum&action=addTopic" method="post">
-    <label>Titre :<input type="text" name="title" /></label>
-    <label>description :<input type="text" name="description" /></label>
     <label>categorie :<input type="number" name="category" /></label>
+    <label>Titre :<input type="text" name="title" /></label>
+    <label>Message :<input type="text" name="message" /></label>
     <input type="text" name="closed" value="0" hidden readonly />
-    <input type="submit" value="Ajouter"/>
+    <input type="submit" value="Ajouter" name="submit" />
 </form>

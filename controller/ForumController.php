@@ -98,7 +98,18 @@ class ForumController extends AbstractController implements ControllerInterface
         return [
             "view" => VIEW_DIR . "forum/listTopics.php",
             "data" => [
-                "topics" => $topicManager->addTopic()
+                "topics" => $topicManager->addTopictest()
+            ]
+        ];
+    }
+// ajout post on appel la fonction newPost dans postmenager
+    public function addPost()
+    {
+        $PostManager = new PostManager;
+        return [
+            "view" => VIEW_DIR . "forum/listTopics.php",
+            "data" => [
+                "topics" => $PostManager->newPost()
             ]
         ];
     }
