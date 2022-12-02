@@ -2,7 +2,7 @@
 
 $posts = $result["data"]['posts'];
 $topic = $result["data"]['topics'];
-var_dump($topic->getClosed());
+// var_dump($topic->getClosed());
 $isClosed = $topic->getClosed();
 
 if (isset($_GET['id'])) {
