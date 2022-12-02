@@ -11,8 +11,10 @@ foreach ($categorys as $category) {
     // var_dump($category->getTitle());die;
 
 ?>
-    <p><?= $category->getId() ?></p>
-    <p><?= $category->getNomCategory() ?></p>
-
+    <div class="card">
+        <a href="index.php?ctrl=forum&action=findTopicsbyCat&id=<?= $category->getId() ?>">
+            <p><?= $category->getNomCategory() ?></p>
+        </a>
+    </div>
 <?php
 }

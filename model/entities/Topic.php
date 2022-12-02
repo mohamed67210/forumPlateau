@@ -9,7 +9,7 @@ final class Topic extends Entity
 
         private $id;
         private $title;
-        private $descreption;
+        private $description;
         private $user;
         private $creationdate;
         private $closed;
@@ -58,13 +58,13 @@ final class Topic extends Entity
 
                 return $this;
         }
-        public function getDescreption()
+        public function getDescription()
         {
-                $this->descreption;
+                return $this->description;
         }
-        public function setDescreption($descreption)
+        public function setDescription($description)
         {
-                $this->descreption = $descreption;
+                $this->description = $description;
                 return $this;
         }
 

@@ -21,7 +21,7 @@
             <header>
                 <nav>
                     <div id="nav-left">
-                        <a href="/">Accueil</a>
+                        <a href="#">Accueil</a>
                         <?php
                         if (App\Session::isAdmin()) {
                         ?>
@@ -45,9 +45,6 @@
                             <a href="/security/register.html">Inscription</a>
                             <a href="index.php?ctrl=forum&action=listTopics">la liste des topics</a>
                             <a href="index.php?ctrl=forum&action=listCategorys">la liste des Categorys</a>
-                            <a href="index.php?ctrl=forum&action=findByCategory">la liste des topics par categories</a>
-
-
                         <?php
                         }
 

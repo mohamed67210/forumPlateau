@@ -50,7 +50,7 @@ class ForumController extends AbstractController implements ControllerInterface
         return [
             "view" => VIEW_DIR . "forum/listTopics.php",
             "data" => [
-                "topics" => $topicManager->findAll(["category_id", "DESC"])
+                "topics" => $topicManager->findByCategory(["category_id", "DESC"])
             ]
         ];
     }
@@ -63,6 +63,42 @@ class ForumController extends AbstractController implements ControllerInterface
             "view" => VIEW_DIR . "forum/listUsers.php",
             "data" => [
                 "users" => $userManager->findAll(["dateCreation", "DESC"])
+            ]
+        ];
+    }
+
+    public function findPostbytopic($id)
+    {
+        $PostManager = new PostManager();
+
+        return [
+            "view" => VIEW_DIR . "forum/listPosts.php",
+            "data" => [
+                "posts" => $PostManager->findPostbytopic($id)
+            ]
+        ];
+    }
+
+    public function findTopicsbyCat($id)
+    {
+        $topicManager = new TopicManager();
+
+        return [
+            "view" => VIEW_DIR . "forum/listTopics.php",
+            "data" => [
+                "topics" => $topicManager->findByCategory($id)
+            ]
+        ];
+    }
+
+    // partie ajout 
+    public function addTopic()
+    {
+        $topicManager = new TopicManager;
+        return [
+            "view" => VIEW_DIR . "forum/listTopics.php",
+            "data" => [
+                "topics" => $topicManager->addTopic()
             ]
         ];
     }
