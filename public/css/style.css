@@ -85,3 +85,21 @@ footer {
     background-color: red;
     color: white;
 }
+#container{
+    margin-top: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#container form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 30%;
+    padding: 2%;
+    gap: 10px;
+}

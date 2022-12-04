@@ -1,9 +1,9 @@
 <?php
+$users = $result["data"]['Users'];
 
- ?>
-
+?>
 <div id="container">
-    <form action="../../index.php?ctrl=security&action=addUser" method="post">
+    <form action="index.php?ctrl=security&action=addUser" method="post">
         <label>Mail :</label>
         <input type="email" name="mail" />
         <label>Pseudo :</label>

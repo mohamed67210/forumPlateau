@@ -16,13 +16,23 @@ class SecurityController extends AbstractController implements ControllerInterfa
     public function index()
     {
     }
-
-    public function addUser(){
+    public function registerform()
+    {
         $userManager = new UserManager();
+
         return [
             "view" => VIEW_DIR . "security/register.php",
             "data" => [
-                "User" => $userManager->newUser()
+                "Users" => $userManager->findAll(["dateCreation", "DESC"])
+            ]
+        ];
+    }
+    public function addUser(){
+        $userManager = new UserManager();
+        return [
+            "view" => VIEW_DIR . "security/login.php",
+            "data" => [
+                "Users" => $userManager->newUser()
             ]
         ];
     }

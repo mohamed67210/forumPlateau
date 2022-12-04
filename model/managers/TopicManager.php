@@ -60,30 +60,30 @@ class TopicManager extends Manager
         }
     }
     // fonction personnaliser pour ajouter nouveau topic
-    public function addTopic()
-    {
-        if (isset($_POST['submit'])) {
+    // public function addTopic()
+    // {
+    //     if (isset($_POST['submit'])) {
 
-            $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS);
-            $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS);
-            $category = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_SPECIAL_CHARS);
-            $closed = filter_input(INPUT_POST, 'closed', FILTER_SANITIZE_SPECIAL_CHARS);
-            // $array = [$title, $description, $category, $closed];
-            // var_dump($array);die;
+    //         $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS);
+    //         $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS);
+    //         $category = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_SPECIAL_CHARS);
+    //         $closed = filter_input(INPUT_POST, 'closed', FILTER_SANITIZE_SPECIAL_CHARS);
+    //         // $array = [$title, $description, $category, $closed];
+    //         // var_dump($array);die;
 
-            if ($title) {
-                $sql = "INSERT INTO topic VALUES('',:title,'',NOW(),:closed,1,1)";
+    //         if ($title) {
+    //             $sql = "INSERT INTO topic VALUES('',:title,'',NOW(),:closed,1,1)";
 
-                try {
-                    return DAO::select($sql, ['title' => $title, 'closed' => $closed]);
-                } catch (\PDOException $e) {
-                    echo $e->getMessage();
-                    die();
-                }
-            }
-        } else {
-            echo 'erreur';
-            die;
-        }
-    }
+    //             try {
+    //                 return DAO::select($sql, ['title' => $title, 'closed' => $closed]);
+    //             } catch (\PDOException $e) {
+    //                 echo $e->getMessage();
+    //                 die();
+    //             }
+    //         }
+    //     } else {
+    //         echo 'erreur';
+    //         die;
+    //     }
+    // }
 }
