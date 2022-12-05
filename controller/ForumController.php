@@ -5,6 +5,7 @@ namespace Controller;
 use App\Session;
 use App\AbstractController;
 use App\ControllerInterface;
+use Model\Entities\Category;
 use Model\Managers\TopicManager;
 use Model\Managers\PostManager;
 use Model\Managers\CategoryManager;
@@ -95,13 +96,15 @@ class ForumController extends AbstractController implements ControllerInterface
     // partie ajout 
     public function addTopic()
     {
-        $topicManager = new TopicManager;
-        return [
-            "view" => VIEW_DIR . "forum/listTopics.php",
-            "data" => [
-                "topics" => $topicManager->addTopictest()
-            ]
-        ];
+        if (isset($_POST['submit'])) {
+
+            $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS);
+            $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS);
+            $category = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_SPECIAL_CHARS);
+            $topicManager = new TopicManager;
+            $topicManager->addTopic($title, $message, $category);
+            $this->redirectTo('forum', 'listTopics');
+        }
     }
     // ajout post on appel la fonction newPost dans postmenager
     public function addPost()
@@ -109,12 +112,13 @@ class ForumController extends AbstractController implements ControllerInterface
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
         }
+        $userId = filter_input(INPUT_GET, 'user', FILTER_SANITIZE_SPECIAL_CHARS);
+        $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS);
+        // var_dump($userId);die;
+
         $PostManager = new PostManager;
-        return [
-            "view" => VIEW_DIR . "forum/listPost.php",
-            "data" => [
-                "topics" => $PostManager->newPost($id)
-            ]
-        ];
+        $PostManager->newPost($id, $userId, $message);
+        Session::addFlash('success', 'votre sujete st bien ajouté !');
+        $this->redirectTo('forum', 'findPostbytopic', $id);
     }
 }

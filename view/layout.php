@@ -21,13 +21,17 @@
             <header>
                 <nav>
                     <div id="nav-left">
-                        <a href="index.php">Accueil</a>
+                        <a href="index.php">
+                            <h3>Forum</h3>
+                        </a>
                         <?php
                         if (App\Session::isAdmin()) {
                         ?>
                             <a href="index.php?ctrl=home&action=users">Voir la liste des gens</a>
 
                         <?php
+                            var_dump(App\Session::isAdmin());
+
                         }
                         ?>
                     </div>
@@ -36,8 +40,10 @@
 
                         if (App\Session::getUser()) {
                         ?>
+                            <a href="index.php?ctrl=forum&action=listCategorys">la liste des Categorys</a>
+                            <a href="index.php?ctrl=forum&action=listTopics">la liste des topics</a>
                             <a href="/security/viewProfile.html"><span class="fas fa-user"></span>&nbsp;<?= App\Session::getUser() ?></a>
-                            <a href="/security/logout.html">Déconnexion</a>
+                            <a href="index.php?ctrl=security&action=logout">Déconnexion</a>
                         <?php
                         } else {
                         ?>
@@ -47,8 +53,6 @@
                             <a href="index.php?ctrl=forum&action=listCategorys">la liste des Categorys</a>
                         <?php
                         }
-
-
                         ?>
                     </div>
                 </nav>

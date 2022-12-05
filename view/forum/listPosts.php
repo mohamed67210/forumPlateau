@@ -1,5 +1,8 @@
 <?php
 
+use App\Session;
+
+
 $posts = $result["data"]['posts'];
 $topic = $result["data"]['topics'];
 // var_dump($topic->getClosed());
@@ -32,7 +35,7 @@ if ($isClosed == 0) {
 ?>
     <h1>Nouveau message</h1>
 
-    <form action="index.php?ctrl=forum&action=addPost&id=<?= $id ?>" method="post">
+    <form action="index.php?ctrl=forum&action=addPost&id=<?= $id ?>&user=<?= Session::getUser()->getId() ?>" method="post">
         <label>message :<input type="text" name="message" /></label>
         <input type="submit" value="Envoyer" name="submit" />
     </form>

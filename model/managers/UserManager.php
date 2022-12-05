@@ -15,44 +15,44 @@ class UserManager extends Manager
     {
         parent::connect();
     }
-    public function findUserByEmail($mail)
+
+
+    public function CheckMail($mail)
+    {
+        $sql = "SELECT mail FROM user WHERE mail = :mail";
+        return  DAO::select($sql, ['mail' => $mail]);
+    }
+    public function CheckPseudo($pseudo)
+    {
+        $sql = "SELECT pseudo FROM user WHERE pseudo = :pseudo";
+        return  DAO::select($sql, ['pseudo' => $pseudo]);
+    }
+    public function addUser($mail, $pseudo, $password1, $password2)
+    {
+        $userManager = new UserManager;
+        $passwordHash = password_hash($password1, PASSWORD_DEFAULT);
+        $data = ['mail' => $mail, 'pseudo' => $pseudo, 'password' => $passwordHash];
+        $userManager->add($data);
+    }
+
+    public function findUserByMail($mail)
     {
         $sql = "SELECT *
                 FROM " . $this->tableName . " WHERE mail = :mail ";
 
-        return $this->getMultipleResults(
-            DAO::select($sql, ["id" => $mail]),
+        return $this->getOneOrNullResult(
+            DAO::select($sql, ["mail" => $mail], false),
             $this->className
         );
     }
-    public function newUser()
+    public function findPasswordbyMail($mail)
     {
+        $sql = "SELECT password
+                FROM " . $this->tableName . " WHERE mail = :mail ";
 
-        $userManager = new UserManager;
-        // $findUser = $userManager->findAll();
-        if (isset($_POST['submit'])) {
-            $mail = filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_SPECIAL_CHARS);
-            $pseudo = filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_SPECIAL_CHARS);
-            $password1 = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_SPECIAL_CHARS);
-            $password2 = filter_input(INPUT_POST, 'password2', FILTER_SANITIZE_SPECIAL_CHARS);
-            $role = filter_input(INPUT_POST, 'role', FILTER_SANITIZE_SPECIAL_CHARS);
-            // on verifie si les deux mdp inserer par l'user sont identique ou pas 
-            if ($password1 === $password2) {
-                // requete pour voir si le mail inserer existe deja ou pas 
-                // $sql = "SELECT mail FROM user WHERE mail = :mail";
-                // return $mailveirify = DAO::select($sql, ['mail' => $mail]);
-                // var_dump($mailveirify);die;
-                // if (!empty($mailveirify)) {
-                    $passwordHash = password_hash($password1, PASSWORD_DEFAULT);
-                    $data = ['mail' => $mail, 'pseudo' => $pseudo, 'password' => $passwordHash, 'role' => $role];
-
-                    // var_dump($passwordHash);
-                    // die;
-                    $userManager->add($data);
-                // }
-            } else {
-                echo 'les deux mot de passe ne sont pas identique';
-            }
-        }
+        return $this->getSingleScalarResult(
+            DAO::select($sql, ["mail" => $mail]),
+            $this->className
+        );
     }
 }

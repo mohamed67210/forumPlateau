@@ -18,6 +18,7 @@ class SecurityController extends AbstractController implements ControllerInterfa
     }
     public function registerform()
     {
+
         $userManager = new UserManager();
 
         return [
@@ -29,24 +30,93 @@ class SecurityController extends AbstractController implements ControllerInterfa
     }
     public function addUser()
     {
-        $userManager = new UserManager();
-        return [
-            "view" => VIEW_DIR . "security/login.php",
-            "data" => [
-                "Users" => $userManager->newUser()
-            ]
-        ];
-    }
+        if (isset($_POST['submit'])) {
 
+
+            $mail = filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_SPECIAL_CHARS);
+            $pseudo = filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_SPECIAL_CHARS);
+            $password1 = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_SPECIAL_CHARS);
+            $password2 = filter_input(INPUT_POST, 'password2', FILTER_SANITIZE_SPECIAL_CHARS);
+            // $role = filter_input(INPUT_POST, 'role', FILTER_SANITIZE_SPECIAL_CHARS);
+            $userManager = new UserManager();
+            // si les filtres passent 
+            if ($mail && $pseudo && $password1) {
+                $userManager = new UserManager();
+
+                // si le mail n'existe pas dans la bdd
+                if (!$userManager->CheckMail($mail)) {
+                    //si le pseudo n'existe pas dans la bdd
+                    if (!$userManager->CheckPseudo($pseudo)) {
+                        //si les deux mot de passe identique
+                        if ($password1 == $password2) {
+
+                            $userManager->addUser($mail, $pseudo, $password1, $password2);
+                            $this->redirectTo('loginform');
+                        } else {
+                            Session::addFlash('error', 'mot de passe incorrecte !');
+                        }
+                    } else {
+                        Session::addFlash('error', 'ce Pseudo existe deja !');
+                    }
+                } else {
+                    Session::addFlash('error', 'ce Mail existe deja !');
+                }
+                return ["view" => VIEW_DIR . "security/login.php"];
+            }
+        }
+    }
     public function loginform()
     {
-        $userManager = new UserManager();
+        return ['view' => VIEW_DIR . "security/login.php"];
+    }
+    public function login()
+    {
+        if (isset($_POST['submit'])) {
+            $mail = filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_SPECIAL_CHARS);
+            // $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
+            $password = $_POST['password'];
 
-        return [
-            "view" => VIEW_DIR . "security/login.php",
-            "data" => [
-                "Users" => $userManager->findAll(["dateCreation", "DESC"])
-            ]
-        ];
+
+            if ($mail) {
+                if ($password) {
+                    $userManager = new UserManager();
+
+                    $userMail = $userManager->findUserByMail($mail);
+                    $userMdp = $userManager->findPasswordbyMail($mail);
+                    // var_dump($userMdp);die;
+                    // var_dump( $userMdp['password']);die;
+
+                    if ($userMail) {
+                        // var_dump($userMail);
+                        // die;
+
+                        $passwordVerify = password_verify($password, $userMdp['password']);
+                        // var_dump($password);
+                        // var_dump($userMdp['password']);
+                        // var_dump(password_verify($password, $userMdp['password']));
+                        // die;
+                        if ($passwordVerify) {
+                            Session::setUser($userMail);
+                            Session::addFlash('success', 'vous etes connecté');
+                            $this->redirectTo('home');
+                        } else {
+                            Session::addFlash('error', 'mot de passe incorrect !');
+                            $this->redirectTo('security', 'loginform');
+                        }
+                    } else {
+                        Session::addFlash('error', 'mail incorrect !');
+                        $this->redirectTo('security', 'loginform');
+                    }
+                }
+            }
+        }
+    }
+
+    public function logout()
+    {
+        session_unset();
+        Session::addFlash('success', 'vous etes déconnecté');
+
+        $this->redirectTo('home');
     }
 }

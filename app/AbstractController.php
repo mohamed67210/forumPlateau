@@ -17,7 +17,7 @@ abstract class AbstractController
             $url .= $action ? "&action=" . $action : "";
             $url .= $id ? "&id=" . $id : "";
             // $url .= ".html";
-        } else $url = "/";
+        } else $url = "/forumPlateau";
         header("Location: $url");
         die();
     }
