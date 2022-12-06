@@ -101,8 +101,10 @@ class ForumController extends AbstractController implements ControllerInterface
             $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS);
             $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS);
             $category = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_SPECIAL_CHARS);
+            $user = filter_input(INPUT_GET, 'user', FILTER_SANITIZE_SPECIAL_CHARS);
+
             $topicManager = new TopicManager;
-            $topicManager->addTopic($title, $message, $category);
+            $topicManager->addTopic($title, $message, $category,$user);
             $this->redirectTo('forum', 'listTopics');
         }
     }

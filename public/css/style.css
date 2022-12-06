@@ -7,7 +7,7 @@
 #wrapper {
     width: 100%;
     min-height: 120vh;
-    background-color: white;
+    background-color: #012626;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -21,7 +21,7 @@
 
 /* partie header qui se trouve dans layout */
 header {
-    background-color: blueviolet;
+    background-color: #F28B50;
     width: 100%;
     height: 5rem;
     display: flex;
@@ -40,14 +40,17 @@ nav {
     display: flex;
     gap: 15px;
 }
-#nav-left a h3{
+
+#nav-left a h3 {
     letter-spacing: 5px;
 }
-#nav-left a{
+
+#nav-left a {
     color: white;
     text-decoration: none;
     /* border: 1px solid white; */
 }
+
 #nav-right {
     display: flex;
     gap: 15px;
@@ -61,6 +64,10 @@ nav {
     padding: 10px;
 }
 
+h1 {
+    color: #F28B50;
+}
+
 footer {
     position: absolute;
     bottom: 0;
@@ -68,7 +75,8 @@ footer {
     justify-content: center;
     width: 100%;
 }
-#cards_container{
+
+#cards_container {
     width: 100%;
     /* background-color: black; */
     display: flex;
@@ -76,8 +84,9 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
 .card {
-    background-color: rgb(102, 47, 153);
+    background-color: #325559;
     display: flex;
     flex-direction: column;
     margin: 10px;
@@ -89,12 +98,13 @@ footer {
 }
 
 .card a {
-    color: white;
+    color: #F28B50;
+    text-decoration: none;
 }
 
 /* pour list post */
 .card.posts {
-    background-color: brown;
+    background-color: transparent;
     display: flex;
     flex-direction: row;
     gap: 10%;
@@ -106,13 +116,22 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    background-color: #325559;
+    padding: 5px;
+    border-radius: 10px;
 }
 
 .card.posts .right {
-    background-color: white;
+    background-color: #325559;
+    border-radius: 15px;
     width: 60%;
-    color: black;
     padding: 5px;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .message_container {
@@ -131,7 +150,7 @@ footer {
 
 #container_topics {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 20px;
@@ -144,7 +163,7 @@ footer {
     justify-content: center;
     align-items: center;
     /* border: 1px solid black; */
-    background-color: rgba(137, 43, 226, 0.74);
+    /* background-color: #325559; */
     border-radius: 20px;
     width: 30%;
     padding: 2%;
@@ -152,28 +171,41 @@ footer {
     color: white;
 }
 
-#addtopic_form{
+#addtopic_form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: aqua;
+    background-color: #325559;
     width: 50%;
+    min-height: 80%;
     padding: 20px;
+    border-radius: 20px;
+    gap: 20px;
 }
-#addtopic_form form{
+
+label {
+    color: white;
+}
+
+#addtopic_form form {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 80%;
+    /* height: 100%; */
 }
-.add_btn{
-    background-color: rgba(73, 194, 73, 0.781);
-    border: 1px solid white;
+
+.add_btn {
+    background-color: transparent;
+    border: 1px solid #F28B50;
     padding: 5px;
-    color: white;
+    color: #F28B50;
+    border-radius: 5px;
 }
+
 /* page accueil  */
-#forum{
+#forum {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -183,8 +215,9 @@ footer {
     width: 100%;
     padding: 5%;
 }
+
 /* listes categorys */
-#container_categorys{
+#container_categorys {
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -192,17 +225,66 @@ footer {
     align-items: center;
     gap: 15px;
 }
-#cards{
+
+#cards {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-color: burlywood;
 }
-#container_categorys .card{
+
+#container_categorys .card {
     width: 200px;
     height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+/* messagerie  */
+#messages_container{
+    width: 80%;
+    border: 1px solid #325559;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+#newMessage_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color:#012626;
+    border-top: 1px solid white;
+    width: 90%;
+}
+#newMessage_container form{
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    border-radius: 10px;
+    gap: 15px;
+    padding: 10px;
+}
+#newMessage_container form textarea{
+    width: 80%;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+#newMessage_container form button i{
+    color: white;
+    font-size: medium;
+}
+#newMessage_container form button{
+    width: 40px;
+    height: 40px;
+    /* padding: 5px; */
+    border-radius: 50%;
+    background-color: #325559;
+    border: none;
 }
