@@ -68,6 +68,34 @@ h1 {
     color: #F28B50;
 }
 
+/* homepage */
+#container_home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #3255596c;
+    min-height: 60vh;
+    gap: 20px;
+    border-radius: 15px;
+}
+
+#container_home span {
+    /* font-weight: bolder; */
+    color: #36733A;
+    text-decoration: underline;
+}
+
+#Lorem_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    text-align: center;
+    color: white;
+}
+
 footer {
     position: absolute;
     bottom: 0;
@@ -107,7 +135,9 @@ footer {
     background-color: transparent;
     display: flex;
     flex-direction: row;
-    gap: 10%;
+    gap: 5%;
+    justify-content: center;
+    align-items: center;
 }
 
 .card.posts .left {
@@ -116,16 +146,30 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background-color: #325559;
+    background-color: #325559b6;
     padding: 5px;
     border-radius: 10px;
+}
+
+.card.posts .circle1 {
+    width: 10px;
+    height: 10px;
+    background-color: #325559;
+    border-radius: 50%;
+}
+
+.card.posts .circle2 {
+    width: 20px;
+    height: 20px;
+    background-color: #325559;
+    border-radius: 50%;
 }
 
 .card.posts .right {
     background-color: #325559;
     border-radius: 15px;
     width: 60%;
-    padding: 5px;
+    padding: 10px;
     color: white;
     display: flex;
     flex-wrap: wrap;
@@ -196,12 +240,38 @@ label {
     /* height: 100%; */
 }
 
+#addtopic_form form input {
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 100%;
+    padding: 5px;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.781);
+}
+
+#addtopic_form form textarea {
+    border-radius: 5px;
+    border: 1px solid gray;
+    background-color: transparent;
+    width: 100%;
+    resize: vertical;
+    max-height: 100px;
+}
+
 .add_btn {
+    margin-top: 5%;
     background-color: transparent;
     border: 1px solid #F28B50;
     padding: 5px;
     color: #F28B50;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.add_btn:hover {
+    background-color: #F28B50;
+    color: white;
+    transition: all 0.9s;
 }
 
 /* page accueil  */
@@ -218,7 +288,7 @@ label {
 
 /* listes categorys */
 #container_categorys {
-    width: 80%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -228,20 +298,28 @@ label {
 
 #cards {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 #container_categorys .card {
-    width: 200px;
+    width: 100%;
     height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+#container_categorys .card h3 {
+    letter-spacing: 20px;
+    font-size: xx-large;
+    color: white;
+}
+
 /* messagerie  */
-#messages_container{
+#messages_container {
     width: 80%;
     border: 1px solid #325559;
     display: flex;
@@ -250,16 +328,18 @@ label {
     align-items: center;
     border-radius: 15px;
 }
-#newMessage_container{
+
+#newMessage_container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color:#012626;
+    background-color: #012626;
     border-top: 1px solid white;
     width: 90%;
 }
-#newMessage_container form{
+
+#newMessage_container form {
     background-color: transparent;
     display: flex;
     flex-direction: row;
@@ -270,21 +350,74 @@ label {
     gap: 15px;
     padding: 10px;
 }
-#newMessage_container form textarea{
+
+#newMessage_container form textarea {
     width: 80%;
     background-color: transparent;
     border: none;
     color: white;
 }
-#newMessage_container form button i{
+
+#newMessage_container form button i {
     color: white;
     font-size: medium;
 }
-#newMessage_container form button{
+
+#newMessage_container form button {
     width: 40px;
     height: 40px;
     /* padding: 5px; */
     border-radius: 50%;
     background-color: #325559;
     border: none;
+}
+
+/* viewProfile */
+#view_prifile {
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.432);
+    min-height: 60vh;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    border-radius: 10px;
+    padding: 2px;
+}
+
+#left {
+    width: 30%;
+    /* height: 80%; */
+    background-color: #325559;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    color: white;
+}
+#user_circle{
+    width: 100px;
+    height: 100px;
+    background-color: #F28B50;
+    border-radius: 50%;
+}
+#right{
+    width: 60%;
+    background-color: #325559;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+}
+#right .activite_container{
+    width: 90%;
+    background-color: #36733A;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

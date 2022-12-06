@@ -23,6 +23,8 @@ if (isset($_GET['id'])) {
                 <p><i class="fa-solid fa-circle-user"></i>&nbsp;<a href="#"><?= $post->getUser() ?></a></p>
                 <p><i class="fa-regular fa-clock"></i>&nbsp;<?= $post->getDateCreation() ?></p>
             </div>
+            <div class="circle1"></div>
+            <div class="circle2"></div>
             <div class="right">
                 <p><?= $post->getContenue() ?></p>
             </div>

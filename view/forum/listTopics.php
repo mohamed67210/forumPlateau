@@ -61,7 +61,7 @@ if (isset($_GET['id'])) {
                     <label>Message :</label>
                     <textarea type="text" name="message"></textarea>
                     <input type="text" name="closed" value="0" hidden readonly />
-                    <input class="add_btn" type="submit" value="Ajouter" name="submit" />
+                    <button class="add_btn" type="submit" name="submit" >Ajouter</button>
                 </form>
             </div>
         <?php } ?>

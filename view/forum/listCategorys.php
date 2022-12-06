@@ -4,7 +4,7 @@ $categorys = $result["data"]['categorys'];
 
 ?>
 <div id="container_categorys">
-    <h1>liste categorys</h1>
+    <!-- <h1>liste categorys</h1> -->
     <div id="cards">
         <?php
         foreach ($categorys as $category) {
@@ -13,7 +13,7 @@ $categorys = $result["data"]['categorys'];
         ?>
             <div class="card">
                 <a href="index.php?ctrl=forum&action=findTopicsbyCat&id=<?= $category->getId() ?>">
-                    <p><?= $category->getNomCategory() ?></p>
+                    <h3><?= $category->getNomCategory() ?></h3>
                 </a>
             </div>
         <?php

@@ -16,8 +16,7 @@
 
         <div id="mainpage">
             <!-- c'est ici que les messages (erreur ou succès) s'affichent-->
-            <h3 class="message" style="color: red"><?= App\Session::getFlash("error") ?></h3>
-            <h3 class="message" style="color: green"><?= App\Session::getFlash("success") ?></h3>
+
             <header>
                 <nav>
                     <div id="nav-left">
@@ -27,7 +26,7 @@
                         <?php
                         if (App\Session::isAdmin()) {
                         ?>
-                            <!-- <a href="index.php?ctrl=home&action=users">Voir la liste des gens</a> -->
+                            <a href="index.php?ctrl=home&action=users">Voir la liste des gens</a>
 
                         <?php
                             // var_dump(App\Session::isAdmin());
@@ -41,7 +40,7 @@
                         ?>
                             <a href="index.php?ctrl=forum&action=listCategorys">la liste des Categorys</a>
                             <a href="index.php?ctrl=forum&action=listTopics">la liste des topics</a>
-                            <a href="/security/viewProfile.html"><i class="fa-solid fa-user"></i>&nbsp;<?= App\Session::getUser() ?></a>
+                            <a href="index.php?ctrl=forum&action=viewProfile"><i class="fa-solid fa-user"></i>&nbsp;<?= App\Session::getUser() ?></a>
                             <a href="index.php?ctrl=security&action=logout">Déconnexion</a>
                         <?php
                         } else {
@@ -56,6 +55,8 @@
                     </div>
                 </nav>
             </header>
+            <h3 class="message" style="color: red"><?= App\Session::getFlash("error") ?></h3>
+            <h3 class="message" style="color: green"><?= App\Session::getFlash("success") ?></h3>
 
             <main id="forum">
                 <?= $page ?>

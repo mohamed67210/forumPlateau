@@ -78,7 +78,7 @@ final class User extends Entity
     }
     public function hasRole($role)
     {
-        if ($this->role = $role) {
+        if ($this->role == $role) {
             return $this->role;
         } else {
             return false;

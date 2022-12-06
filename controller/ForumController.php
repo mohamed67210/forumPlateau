@@ -104,7 +104,7 @@ class ForumController extends AbstractController implements ControllerInterface
             $user = filter_input(INPUT_GET, 'user', FILTER_SANITIZE_SPECIAL_CHARS);
 
             $topicManager = new TopicManager;
-            $topicManager->addTopic($title, $message, $category,$user);
+            $topicManager->addTopic($title, $message, $category, $user);
             $this->redirectTo('forum', 'listTopics');
         }
     }
@@ -122,5 +122,12 @@ class ForumController extends AbstractController implements ControllerInterface
         $PostManager->newPost($id, $userId, $message);
         Session::addFlash('success', 'votre sujete st bien ajouté !');
         $this->redirectTo('forum', 'findPostbytopic', $id);
+    }
+
+    public function viewProfile()
+    {
+        return [
+            "view" => VIEW_DIR . "forum/viewProfile.php"
+        ];
     }
 }
