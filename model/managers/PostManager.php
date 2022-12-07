@@ -32,14 +32,29 @@ class PostManager extends Manager
         );
     }
 
-    public function newPost($id,$userId,$message)
+    public function newPost($id, $userId, $message)
     {
         $postManager = new PostManager;
         if (isset($_POST['submit'])) {
             if ($message) {
-                $data = ['contenue' => $message, 'user_id' =>$userId, 'topic_id' => $id];
+                $data = ['contenue' => $message, 'user_id' => $userId, 'topic_id' => $id];
                 $postManager->add($data);
             }
         }
+    }
+
+    public function findPostbyMail($id, $order = null)
+    {
+        // var_dump($id);die;
+        $orderQuery = ($order) ?
+            "ORDER BY " . $order[0] . " " . $order[1] :
+            "";
+        $sql = "SELECT *
+                FROM " . $this->tableName . "  WHERE user_id = :id;
+                " . $orderQuery;
+        return $this->getMultipleResults(
+            DAO::select($sql, ['id' => $id]),
+            $this->className
+        );
     }
 }

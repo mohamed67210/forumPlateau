@@ -420,4 +420,9 @@ label {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 5px;
+}
+#right .activite_container .post_container{
+    background-color: #F28B50;
+    width: 90%;
 }

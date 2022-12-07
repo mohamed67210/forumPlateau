@@ -126,8 +126,14 @@ class ForumController extends AbstractController implements ControllerInterface
 
     public function viewProfile()
     {
+        $postManager = new PostManager();
+        $id = Session::getUser()->getId();
         return [
-            "view" => VIEW_DIR . "forum/viewProfile.php"
+            "view" => VIEW_DIR . "forum/viewProfile.php",
+            "data" => [
+                "posts" => $postManager->findPostbyMail($id)
+            ]
+
         ];
     }
 }

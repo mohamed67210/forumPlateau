@@ -1,7 +1,8 @@
 <?php
 
 use App\Session;
-// var_dump(Session::getUser())
+//  var_dump(Session::getUser()->getId())
+$posts = $result['data']['posts'];
 ?>
 <div id="view_prifile">
     <div id="left">
@@ -13,6 +14,11 @@ use App\Session;
         <h2>Activité : </h2>
         <div class="activite_container">
             <p>Dernier messages</p>
+            <?php foreach ($posts as $post) { ?>
+                <div class="post_container">
+                    <p><?= $post->getContenue() ?></p>
+                </div>
+            <?php } ?>
 
         </div>
         <div class="activite_container">
