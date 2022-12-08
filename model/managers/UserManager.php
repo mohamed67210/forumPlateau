@@ -55,4 +55,11 @@ class UserManager extends Manager
             $this->className
         );
     }
+
+    // bannir user en changant la valeur de isBanish to true
+    public function BannirUser($UserId)
+    {
+        $sql = "UPDATE user SET isBannish = 1 WHERE id_user = :userId";
+        return DAO::delete($sql, ['userId' => $UserId]); 
+    }
 }

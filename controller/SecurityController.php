@@ -119,4 +119,17 @@ class SecurityController extends AbstractController implements ControllerInterfa
 
         $this->redirectTo('home');
     }
+
+    // appeler cette fonction au moment en clique sur le bouton bannir
+
+    public function deleteuser($UserId)
+    {
+        $UserId = $_GET['id'];
+        $userManager = new UserManager();
+
+        $userManager->BannirUser($UserId);
+        Session::addFlash('success', 'vous venez de baniir ' . $UserId . '');
+
+        $this->redirectTo('Home', 'users');
+    }
 }
