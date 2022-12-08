@@ -25,10 +25,10 @@ class HomeController extends AbstractController implements ControllerInterface
 
     public function users()
     {
-        $this->restrictTo("ROLE_USER");
+        $this->restrictTo("admin");
 
         $manager = new UserManager();
-        $users = $manager->findAll(['registerdate', 'DESC']);
+        $users = $manager->findAll(['dateCreation', 'DESC']);
 
         return [
             "view" => VIEW_DIR . "security/users.php",

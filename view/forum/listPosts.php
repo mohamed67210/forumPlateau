@@ -21,7 +21,7 @@ if (isset($_GET['id'])) {
         <div class="card posts">
             <div class="left">
                 <p><i class="fa-solid fa-circle-user"></i>&nbsp;<a href="#"><?= $post->getUser() ?></a></p>
-                <p><i class="fa-regular fa-clock"></i>&nbsp;<?= $post->getDateCreation() ?></p>
+                <span><i class="fa-regular fa-clock"></i>&nbsp;<?= $post->getDateCreation() ?></span>
             </div>
             <div class="circle1"></div>
             <div class="circle2"></div>

@@ -150,6 +150,9 @@ footer {
     padding: 5px;
     border-radius: 10px;
 }
+.card.posts .left span{
+    font-size: xx-small;
+}
 
 .card.posts .circle1 {
     width: 10px;
@@ -425,11 +428,30 @@ label {
 }
 #right .activite_container .post_container{
     background-color: transparent;
-    border: 1px solid #F28B50;
+    border: 1px solid #f28b505d;
     width: 90%;
     border-radius: 5px;
     padding-left: 5px;
 }
 .activite_container .post_container span{
     font-size: xx-small;
+}
+
+/* liste des users  */
+table{
+    border: 1px solid white;
+    width: 100vh;
+    
+}
+table tr{
+    background-color: #325559;
+    text-align: center;
+}
+table tr th{
+    padding: 10px;
+    color: rgba(255, 255, 255, 0.63);
+}
+table tr td{
+    padding: 5px;
+    color: white;
 }

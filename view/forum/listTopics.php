@@ -38,9 +38,9 @@ if (isset($_GET['id'])) {
 
                 ?>
                     <div class="card">
-                        <p>Sjuet : <?= $topic->getTitle() ?></p>
-                        <p>Auteur : <?= $topic->getUser() ?></p>
-                        <p>date : <?= $topic->getCreationdate() ?></p>
+                        <p>Sujet : <?= $topic->getTitle() ?></p>
+                        <p><i class="fa-solid fa-user"></i>&nbsp;<?= $topic->getUser() ?></p>
+                        <p><i class="fa-solid fa-calendar-days"></i>&nbsp; <?= $topic->getCreationdate() ?></p>
 
                         <a href="index.php?ctrl=forum&action=findPostbytopic&id=<?= $topic->getId() ?>"><i class="fa-solid fa-eye"></i>
                             Voir les messages
@@ -61,7 +61,7 @@ if (isset($_GET['id'])) {
                     <label>Message :</label>
                     <textarea type="text" name="message"></textarea>
                     <input type="text" name="closed" value="0" hidden readonly />
-                    <button class="add_btn" type="submit" name="submit" >Ajouter</button>
+                    <button class="add_btn" type="submit" name="submit">Ajouter</button>
                 </form>
             </div>
         <?php } ?>
