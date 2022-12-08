@@ -3,7 +3,7 @@ taches a faire :
 1) partie admin : 
     - afficher liste des gens  (fait)
     - verrouillage/deverrouillage de topic
-    - supprimer des utilisateur
+    - bannir des utilisateur
     - 
 2) partie en commun
     - afficher profile de user connecter et voir ses derniers activité (fait)

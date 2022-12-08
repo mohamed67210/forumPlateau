@@ -452,6 +452,14 @@ table tr th{
     color: rgba(255, 255, 255, 0.63);
 }
 table tr td{
-    padding: 5px;
+    padding: 15px;
     color: white;
+}
+.red_btn{
+    background-color: rgba(255, 0, 0, 0.685);
+    color: rgba(255, 255, 255, 0.801);
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
 }
