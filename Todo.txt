@@ -6,4 +6,4 @@ taches a faire :
     - supprimer des utilisateur
     - 
 2) partie en commun
-    - afficher profile de user connecter et voir ses derniers activité
+    - afficher profile de user connecter et voir ses derniers activité (fait)
