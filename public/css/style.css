@@ -129,7 +129,10 @@ footer {
     color: #F28B50;
     text-decoration: none;
 }
-
+.card p span{
+    color: #F28B50;
+    font-weight: bold;
+}
 /* pour list post */
 .card.posts {
     background-color: transparent;
@@ -470,4 +473,11 @@ table tr td{
     padding: 5px;
     border-radius: 5px;
     font-weight: bold;
+}
+
+/* page home si l'user est banni on affiche */
+#message_container{
+    background-color: red;
+    color: white;
+    padding: 20px;
 }

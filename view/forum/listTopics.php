@@ -38,7 +38,7 @@ if (isset($_GET['id'])) {
 
                 ?>
                     <div class="card">
-                        <p>Sujet : <?= $topic->getTitle() ?></p>
+                        <p><span>Sujet :</span> <?= $topic->getTitle() ?></p>
                         <p><i class="fa-solid fa-user"></i>&nbsp;<?= $topic->getUser() ?></p>
                         <p><i class="fa-solid fa-calendar-days"></i>&nbsp; <?= $topic->getCreationdate() ?></p>
 

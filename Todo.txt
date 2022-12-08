@@ -3,10 +3,11 @@ taches a faire :
 1) partie admin : 
     - afficher liste des gens  (fait)
     - verrouillage/deverrouillage de topic
-    - bannir des utilisateur
-    - 
+    - bannir/activer des utilisateur (fait)
+    - supprimer des message
 2) partie en commun
     - afficher profile de user connecter et voir ses derniers activité (fait)
+    -afficher message a l'acceuil pour user banni (fait)
 
 3) liste topics : 
-afficher nombre de messages par topics
+    -afficher nombre de messages par topics

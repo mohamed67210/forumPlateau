@@ -9,10 +9,12 @@
             facere rerum in laborum debitis labore aliquam ullam cumque.</p>
     </div>
     <?php if ((App\Session::getUser())) {
-        if((App\Session::getUser()->getIsBanish()) == 1){
-            echo 'vous etes Banni ';
-        }
-    ?>
+        if ((App\Session::getUser()->getIsBanish()) == 1) { ?>
+            <div id="message_container">
+                <h4>Vous ne pouvez pas acceder a votre compte parce que vous etes banni</h4>
+            </div>
+        <?php }
+        ?>
 
     <?php } else { ?><p>
             <a href="/security/login.html">Se connecter</a>
