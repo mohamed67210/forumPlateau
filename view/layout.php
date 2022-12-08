@@ -37,14 +37,19 @@
                         <?php
 
                         if (App\Session::getUser()) {
+                            if (App\Session::getUser()->getIsBanish() != 1) {
                         ?>
-                            <a href="index.php?ctrl=forum&action=listCategorys">la liste des Categorys</a>
-                            <a href="index.php?ctrl=forum&action=listTopics">la liste des topics</a>
-                            <a href="index.php?ctrl=forum&action=viewProfile"><i class="fa-solid fa-user"></i>&nbsp;<?= App\Session::getUser() ?></a>
-                            <a href="index.php?ctrl=security&action=logout">Déconnexion</a>
-                        <?php
-                        } else {
-                        ?>
+                                <a href="index.php?ctrl=forum&action=listCategorys">la liste des Categorys</a>
+                                <a href="index.php?ctrl=forum&action=listTopics">la liste des topics</a>
+                                <a href="index.php?ctrl=forum&action=viewProfile"><i class="fa-solid fa-user"></i>&nbsp;<?= App\Session::getUser() ?></a>
+                                <a href="index.php?ctrl=security&action=logout">Déconnexion</a>
+                            <?php
+                            } else { ?>
+                                <a href="index.php?ctrl=security&action=logout">Déconnexion</a>
+
+                            <?php } 
+                            } else {
+                            ?>
                             <a href="index.php?ctrl=security&action=loginform">Connexion</a>
                             <a href="index.php?ctrl=security&action=registerform">Inscription</a>
                             <a href="index.php?ctrl=forum&action=listTopics">la liste des topics</a>

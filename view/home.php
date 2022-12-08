@@ -1,6 +1,6 @@
 <div id="container_home">
-    <h1><span> <?php if (app\Session::getUser()) {
-                    app\Session::getUser()->getPseudo();
+    <h1><span> <?php if ((app\Session::getUser())) {
+                    echo app\Session::getUser()->getPseudo();
                 } else {
                 }  ?></span>&nbsp;BIENVENUE SUR LE FORUM </h1>
     <div id="Lorem_container">
@@ -8,7 +8,10 @@
             Sit ut nemo quia voluptas numquam, itaque ipsa soluta ratione eum temporibus aliquid,
             facere rerum in laborum debitis labore aliquam ullam cumque.</p>
     </div>
-    <?php if (App\Session::getUser()) {
+    <?php if ((App\Session::getUser())) {
+        if((App\Session::getUser()->getIsBanish()) == 1){
+            echo 'vous etes Banni ';
+        }
     ?>
 
     <?php } else { ?><p>
