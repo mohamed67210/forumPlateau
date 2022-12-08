@@ -20,6 +20,7 @@ $users = $result['data']['users'];
                 <td><?= $user->getMail(); ?></td>
                 <td><?= $user->getDateCreation(); ?></td>
                 <td><?= $user->getRole(); ?></td>
+                <td><a class="red_btn" href="index.php?ctrl=security&action=deleteuser&id=<?= $user->getId() ?>"><i class="fa-solid fa-user-slash"></i></a></td>
             </tr>
         <?php }  ?>
     </table>
