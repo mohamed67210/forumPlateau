@@ -28,7 +28,7 @@ class TopicManager extends Manager
         );
     }
     // fonction ajouter topic avc la fonction add dans manager 
-    public function addTopic($title, $message, $category,$user)
+    public function addTopic($title, $message, $category, $user)
     {
         $topicManager = new topicManager;
         $postManager = new PostManager;
@@ -42,5 +42,24 @@ class TopicManager extends Manager
             $data = ['contenue' => $message, 'user_id' => $user, 'topic_id' => $last];
             $postManager->add($data);
         }
+    }
+
+    public function findTopicbyMail($id, $order = null)
+    {
+        // var_dump($id);die;
+        $orderQuery = ($order) ?
+            "ORDER BY " . $order[0] . " " . $order[1] :
+            "";
+        $sql = "SELECT
+        *
+        FROM
+        " . $this->tableName . "
+        WHERE
+        user_id = :id
+        " . $orderQuery;
+        return $this->getMultipleResults(
+            DAO::select($sql, ['id' => $id]),
+            $this->className
+        );
     }
 }

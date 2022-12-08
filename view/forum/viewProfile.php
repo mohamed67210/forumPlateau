@@ -3,6 +3,8 @@
 use App\Session;
 //  var_dump(Session::getUser()->getId())
 $posts = $result['data']['posts'];
+$topics = $result['data']['topics'];
+
 ?>
 <div id="view_prifile">
     <div id="left">
@@ -17,12 +19,19 @@ $posts = $result['data']['posts'];
             <?php foreach ($posts as $post) { ?>
                 <div class="post_container">
                     <p><?= $post->getContenue() ?></p>
+                    <span><?= $post->getDateCreation() ?></span>
                 </div>
             <?php } ?>
 
         </div>
         <div class="activite_container">
             <p>Dernier sujets</p>
+            <?php foreach ($topics as $topic) { ?>
+                <div class="post_container">
+                    <p><?= $topic->getTitle() ?></p>
+                    <span><?= $topic->getCreationdate() ?></span>
+                </div>
+            <?php } ?>
         </div>
 
     </div>

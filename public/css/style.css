@@ -415,14 +415,21 @@ label {
 }
 #right .activite_container{
     width: 90%;
-    background-color: #36733A;
+    background-color:#5165689d;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
+    padding: 5px;
 }
 #right .activite_container .post_container{
-    background-color: #F28B50;
+    background-color: transparent;
+    border: 1px solid #F28B50;
     width: 90%;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+.activite_container .post_container span{
+    font-size: xx-small;
 }

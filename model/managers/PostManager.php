@@ -49,9 +49,13 @@ class PostManager extends Manager
         $orderQuery = ($order) ?
             "ORDER BY " . $order[0] . " " . $order[1] :
             "";
-        $sql = "SELECT *
-                FROM " . $this->tableName . "  WHERE user_id = :id;
-                " . $orderQuery;
+        $sql = "SELECT
+        *
+    FROM
+        post
+    WHERE
+        user_id = :id
+       ORDER BY dateCreation DESC";
         return $this->getMultipleResults(
             DAO::select($sql, ['id' => $id]),
             $this->className
