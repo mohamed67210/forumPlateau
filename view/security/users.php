@@ -11,16 +11,23 @@ $users = $result['data']['users'];
             <th>Mail</th>
             <th>Date inscription</th>
             <th>Role</th>
+            <!-- <th>satatu</th> -->
             <th>Action</th>
         </tr>
-        <?php foreach ($users as $user) { ?>
+        <?php foreach ($users as $user) {
+            $isBanish = $user->getIsBanish() ?>
             <tr>
                 <td><?= $user->getId(); ?></td>
                 <td><?= $user->getPseudo(); ?></td>
                 <td><?= $user->getMail(); ?></td>
                 <td><?= $user->getDateCreation(); ?></td>
                 <td><?= $user->getRole(); ?></td>
-                <td><a class="red_btn" href="index.php?ctrl=security&action=deleteuser&id=<?= $user->getId() ?>"><i class="fa-solid fa-user-slash"></i></a></td>
+                <!-- <td><?= $user->getIsBanish(); ?></td> -->
+                <?php if ($isBanish != true) { ?>
+                    <td><a class="red_btn" href="index.php?ctrl=security&action=deleteuser&id=<?= $user->getId() ?>"><i class="fa-solid fa-user-slash"></i></a></td>
+                <?php } else { ?>
+                    <td><a class="green_btn" href="index.php?ctrl=security&action=activeuser&id=<?= $user->getId() ?>"><i class="fa-solid fa-user-slash"></i></a></td>
+                <?php } ?>
             </tr>
         <?php }  ?>
     </table>

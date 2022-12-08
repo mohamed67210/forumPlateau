@@ -76,6 +76,13 @@ final class User extends Entity
         $this->dateCreation = $date;
         return $this;
     }
+    public function getIsBanish(){
+        return $this->isBanish;
+    }
+    public function setIsBanish($isBanish){
+        $this->isBanish = $isBanish;
+        return $this;
+    }
     public function hasRole($role)
     {
         if ($this->role == $role) {
@@ -84,6 +91,9 @@ final class User extends Entity
             return false;
         }
     }
+
+    
+
 
     public function __toString()
     {

@@ -463,3 +463,11 @@ table tr td{
     border-radius: 5px;
     font-weight: bold;
 }
+.green_btn{
+    background-color: rgba(0, 128, 0, 0.767);
+    color: rgba(255, 255, 255, 0.801);
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+}

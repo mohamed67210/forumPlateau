@@ -128,7 +128,17 @@ class SecurityController extends AbstractController implements ControllerInterfa
         $userManager = new UserManager();
 
         $userManager->BannirUser($UserId);
-        Session::addFlash('success', 'vous venez de baniir ' . $UserId . '');
+        Session::addFlash('error', 'vous venez de baniir ' . $UserId . '');
+
+        $this->redirectTo('Home', 'users');
+    }
+    public function activeuser($UserId)
+    {
+        $UserId = $_GET['id'];
+        $userManager = new UserManager();
+
+        $userManager->ActiveUser($UserId);
+        Session::addFlash("success", "vous venez d'activer le compte numero  " . $UserId . "");
 
         $this->redirectTo('Home', 'users');
     }
