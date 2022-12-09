@@ -38,6 +38,14 @@ class HomeController extends AbstractController implements ControllerInterface
         ];
     }
 
+    public function addCategory()
+    {
+        $this->restrictTo("admin");
+        return [
+            "view" => VIEW_DIR . "forum/listCategorys.php"
+        ];
+    }
+
     public function forumRules()
     {
 

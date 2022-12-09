@@ -16,4 +16,10 @@ class CategoryManager extends Manager
     {
         parent::connect();
     }
+
+    public function addCategory($categoryName){
+        $categoryManager = new CategoryManager();
+        $data = ['nomCategory' => $categoryName];
+                $categoryManager->add($data);
+    }
 }

@@ -55,14 +55,17 @@ nav {
     position: relative;
     background-color: transparent;
     border: none;
+    cursor: pointer;
 }
 
 .dropdown button {
-    background-color: #325559;
+    background-color: transparent;
     color: white;
     border: 1px solid white;
     border-radius: 5px;
     padding: 5px;
+    cursor: pointer;
+
 }
 
 .dropdown-content {
@@ -76,13 +79,18 @@ nav {
     display: flex;
     flex-direction: column;
     background-color: #325559;
+    gap: 0.2rem;
+    border: 1px solid #F28B50;
 }
 
 .dropdown-content a {
     display: block;
-    color: #000000;
+    background-color: #012626;
     padding: 5px;
-    text-decoration: none;
+}
+.dropdown-content a:hover{
+    background-color: #325559;
+    transition: all 0.5s;
 }
 
 #nav-right {

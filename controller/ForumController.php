@@ -27,7 +27,7 @@ class ForumController extends AbstractController implements ControllerInterface
         return [
             "view" => VIEW_DIR . "forum/listCategorys.php",
             "data" => [
-                "categorys" => $categoryManager->findAll(["nomCategory", "DESC"])
+                "categorys" => $categoryManager->findAll(["id_category", "DESC"])
             ]
         ];
     }
@@ -106,6 +106,15 @@ class ForumController extends AbstractController implements ControllerInterface
             $topicManager = new TopicManager;
             $topicManager->addTopic($title, $message, $category, $user);
             $this->redirectTo('forum', 'listTopics');
+        }
+    }
+    // ajout categorie 
+    public function addCategory(){
+        if(isset($_POST['submit'])){
+            $categoryName = filter_input(INPUT_POST, 'nom_category', FILTER_SANITIZE_SPECIAL_CHARS);
+            $categoryManager = new CategoryManager();
+            $categoryManager -> addCategory($categoryName);
+            $this->redirectTo('forum', 'listCategorys');
         }
     }
     // ajout post on appel la fonction newPost dans postmenager
