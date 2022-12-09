@@ -26,8 +26,14 @@
                         <?php
                         if (App\Session::isAdmin()) {
                         ?>
-                            <a href="index.php?ctrl=home&action=users">Voir la liste des gens</a>
+                            <div class="dropdown">
+                                <button>ADMIN</button>
+                                <div class="dropdown-content">
+                                    <a href="index.php?ctrl=home&action=users">Voir la liste des gens</a>
+                                    <a href="index.php?ctrl=home&action=users">Voir la liste des gens</a>
 
+                                </div>
+                            </div>
                         <?php
                             // var_dump(App\Session::isAdmin());
                         }

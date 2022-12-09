@@ -5,6 +5,7 @@ taches a faire :
     - verrouillage/deverrouillage de topic
     - bannir/activer des utilisateur (fait)
     - supprimer des message
+    -changer role user
 2) partie en commun
     - afficher profile de user connecter et voir ses derniers activité (fait)
     -afficher message a l'acceuil pour user banni (fait)
