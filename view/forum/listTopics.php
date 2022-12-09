@@ -42,14 +42,16 @@ if (isset($_GET['id'])) {
                         <p><i class="fa-solid fa-user"></i>&nbsp;<?= $topic->getUser() ?></p>
                         <p><i class="fa-solid fa-calendar-days"></i>&nbsp; <?= $topic->getCreationdate() ?></p>
                         <?php if ($topic->getClosed() != 1) { ?>
+                            <!-- si le topic est deverouiller on affiche le lien voir messages  -->
                             <a href="index.php?ctrl=forum&action=findPostbytopic&id=<?= $topic->getId() ?>"><i class="fa-solid fa-eye"></i>
                                 Voir les messages
                             </a>
                         <?php } elseif (($topic->getClosed() != 0) && (Session::isAdmin())) { ?>
+                            <!-- si le topic est verouiller mais que c un admin qui est connecté on affiche voir messages  -->
                             <a href="index.php?ctrl=forum&action=findPostbytopic&id=<?= $topic->getId() ?>"><i class="fa-solid fa-eye"></i>
                                 Voir les messages
                             </a>
-                        <?php } ?>
+                        <?php } else { ?> <div id="cacher"></div><?php } ?>
                         <?php if (Session::isAdmin()) { ?>
                             <div id="admin_bannier">
                                 <?php if ($topic->getClosed() != 1) { ?>

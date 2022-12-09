@@ -5,7 +5,7 @@ taches a faire :
     -ajouter category (fait)
     - verrouillage/deverrouillage de topic (fait)
     - bannir/activer des utilisateur (fait)
-    - supprimer des message
+    - supprimer des message(fait)
     -changer role user
 2) partie en commun
     - afficher profile de user connecter et voir ses derniers activité (fait)
@@ -13,3 +13,4 @@ taches a faire :
 
 3) liste topics : 
     -afficher nombre de messages par topics
+    - rendre le topic flou si il est verrouiller
