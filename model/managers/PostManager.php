@@ -61,4 +61,10 @@ class PostManager extends Manager
             $this->className
         );
     }
+
+    public function deletePost($PostId){
+        $id = $PostId;
+        $postManager = new PostManager();
+        $postManager->delete($id);
+    }
 }

@@ -521,6 +521,9 @@ table tr td {
     border-radius: 5px;
     font-weight: bold;
 }
+.red_btn i{
+    color: rgba(255, 255, 255, 0.527);
+}
 
 .green_btn {
     background-color: rgba(0, 128, 0, 0.767);

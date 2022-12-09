@@ -32,7 +32,7 @@
                                     <a href="index.php?ctrl=home&action=users">liste des utilisateurs</a>
                                     <a href="index.php?ctrl=forum&action=listCategorys">Ajouter Categorie</a>
                                     <a href="index.php?ctrl=forum&action=listTopics">verrouiller Sujet</a>
-                                    <a href="index.php?ctrl=forum&action=deletePost">Supprimer message</a>
+                                    <a href="index.php?ctrl=forum&action=listTopics">Supprimer message</a>
                                 </div>
                             </div>
                         <?php

@@ -28,6 +28,9 @@ if (isset($_GET['id'])) {
             <div class="right">
                 <p><?= $post->getContenue() ?></p>
             </div>
+            <?php if (Session::isAdmin()) { ?>
+                <a class="red_btn" href="index.php?ctrl=security&action=deletePost&idpost=<?= $post->getId() ?>&idtopic=<?= $post->getTopic()?>"><i class="fa-solid fa-trash"></i></a>
+            <?php } ?>
         </div>
         <?php
     }

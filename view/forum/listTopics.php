@@ -45,6 +45,10 @@ if (isset($_GET['id'])) {
                             <a href="index.php?ctrl=forum&action=findPostbytopic&id=<?= $topic->getId() ?>"><i class="fa-solid fa-eye"></i>
                                 Voir les messages
                             </a>
+                        <?php } elseif (($topic->getClosed() != 0) && (Session::isAdmin())) { ?>
+                            <a href="index.php?ctrl=forum&action=findPostbytopic&id=<?= $topic->getId() ?>"><i class="fa-solid fa-eye"></i>
+                                Voir les messages
+                            </a>
                         <?php } ?>
                         <?php if (Session::isAdmin()) { ?>
                             <div id="admin_bannier">

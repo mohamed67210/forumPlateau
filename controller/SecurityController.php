@@ -160,4 +160,15 @@ class SecurityController extends AbstractController implements ControllerInterfa
         $topicmanager->closeTopic($topicId);
         $this->redirectTo('Forum', 'listTopics');
     }
+
+    // supprimer message
+    public function deletePost()
+    {
+        $TopicId = $_GET['idtopic'];
+        $PostId = $_GET['idpost'];
+        var_dump($PostId);
+        $postmanager = new PostManager();
+        $postmanager->deletePost($PostId);
+        $this->redirectTo('forum', 'findPostbytopic', $TopicId);
+    }
 }
