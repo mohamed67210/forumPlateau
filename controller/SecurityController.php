@@ -142,4 +142,22 @@ class SecurityController extends AbstractController implements ControllerInterfa
 
         $this->redirectTo('Home', 'users');
     }
+
+    // verrouiller ou deverouiller topics
+    // verrouiller
+    public function closeTopic()
+    {
+        $topicId = $_GET['id'];
+        $topicmanager = new TopicManager();
+        $topicmanager->activeTopic($topicId);
+        $this->redirectTo('Forum', 'listTopics');
+    }
+    // deverrouiller
+    public function openTopic()
+    {
+        $topicId = $_GET['id'];
+        $topicmanager = new TopicManager();
+        $topicmanager->closeTopic($topicId);
+        $this->redirectTo('Forum', 'listTopics');
+    }
 }

@@ -62,4 +62,14 @@ class TopicManager extends Manager
             $this->className
         );
     }
+
+    public function activeTopic($topicId){
+        $sql = "UPDATE topic SET closed = 0 WHERE id_topic = :topicId";
+        return DAO::delete($sql, ['topicId' => $topicId]);
+    }
+
+    public function closeTopic($topicId){
+        $sql = "UPDATE topic SET closed = 1 WHERE id_topic = :topicId";
+        return DAO::delete($sql, ['topicId' => $topicId]);
+    }
 }

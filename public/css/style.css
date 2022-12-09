@@ -165,6 +165,7 @@ footer {
     gap: 15px;
     width: 70%;
     border-radius: 10px;
+    position: relative;
 }
 
 .card a {
@@ -535,4 +536,24 @@ table tr td {
     background-color: red;
     color: white;
     padding: 20px;
+}
+
+/* btn verroullage deverouillage dans page listTopics (uniquement admin) */
+.isverrouiller{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: #F28B50;
+}
+#admin_bannier{
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background-color: #36733A;
+    padding: 5px;
+    border-radius: 5px;
+}
+#admin_bannier a{
+    color: white;
+    font-size: small;
 }

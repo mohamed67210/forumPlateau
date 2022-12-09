@@ -2,7 +2,8 @@ taches a faire :
 
 1) partie admin : 
     - afficher liste des gens  (fait)
-    - verrouillage/deverrouillage de topic
+    -ajouter category (fait)
+    - verrouillage/deverrouillage de topic (fait)
     - bannir/activer des utilisateur (fait)
     - supprimer des message
     -changer role user

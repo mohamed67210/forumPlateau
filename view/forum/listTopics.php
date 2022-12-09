@@ -41,10 +41,27 @@ if (isset($_GET['id'])) {
                         <p><span>Sujet :</span> <?= $topic->getTitle() ?></p>
                         <p><i class="fa-solid fa-user"></i>&nbsp;<?= $topic->getUser() ?></p>
                         <p><i class="fa-solid fa-calendar-days"></i>&nbsp; <?= $topic->getCreationdate() ?></p>
+                        <?php if ($topic->getClosed() != 1) { ?>
+                            <a href="index.php?ctrl=forum&action=findPostbytopic&id=<?= $topic->getId() ?>"><i class="fa-solid fa-eye"></i>
+                                Voir les messages
+                            </a>
+                        <?php } ?>
+                        <?php if (Session::isAdmin()) { ?>
+                            <div id="admin_bannier">
+                                <?php if ($topic->getClosed() != 1) { ?>
+                                    <a href="index.php?ctrl=security&action=openTopic&id=<?= $topic->getId() ?>">Verrouiller</a>
+                                <?php } else { ?>
+                                    <a href="index.php?ctrl=security&action=closeTopic&id=<?= $topic->getId() ?>">Deverrouiller</a>
+                                <?php } ?>
 
-                        <a href="index.php?ctrl=forum&action=findPostbytopic&id=<?= $topic->getId() ?>"><i class="fa-solid fa-eye"></i>
-                            Voir les messages
-                        </a>
+                            </div>
+                        <?php } ?>
+
+                        <?php if ($topic->getClosed() != 0) { ?>
+                            <div class="isverrouiller"><i class="fa-solid fa-lock"></i></div>
+                        <?php } else { ?>
+                            <div class="isverrouiller"><i class="fa-solid fa-lock-open"></i></div>
+                        <?php } ?>
                     </div>
                 <?php } ?>
         </div>
