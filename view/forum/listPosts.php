@@ -15,25 +15,30 @@ if (isset($_GET['id'])) {
 <h1>messages</h1>
 <div id="messages_container">
     <?php
-    foreach ($posts as $post) {
-        // var_dump($post);die;
+    if ($posts) {
+        foreach ($posts as $post) {
+            // var_dump($post);die;
     ?>
-        <div class="card posts">
-            <div class="left">
-                <p><i class="fa-solid fa-circle-user"></i>&nbsp;<a href="#"><?= $post->getUser() ?></a></p>
-                <span><i class="fa-regular fa-clock"></i>&nbsp;<?= $post->getDateCreation() ?></span>
+            <div class="card posts">
+                <div class="left">
+                    <p><i class="fa-solid fa-circle-user"></i>&nbsp;<a href="#"><?= $post->getUser() ?></a></p>
+                    <span><i class="fa-regular fa-clock"></i>&nbsp;<?= $post->getDateCreation() ?></span>
+                </div>
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="right">
+                    <p><?= $post->getContenue() ?></p>
+                </div>
+                <?php if (Session::isAdmin()) { ?>
+                    <a class="red_btn" href="index.php?ctrl=security&action=deletePost&idpost=<?= $post->getId() ?>&idtopic=<?= $post->getTopic() ?>"><i class="fa-solid fa-trash"></i></a>
+                <?php } ?>
             </div>
-            <div class="circle1"></div>
-            <div class="circle2"></div>
-            <div class="right">
-                <p><?= $post->getContenue() ?></p>
-            </div>
-            <?php if (Session::isAdmin()) { ?>
-                <a class="red_btn" href="index.php?ctrl=security&action=deletePost&idpost=<?= $post->getId() ?>&idtopic=<?= $post->getTopic()?>"><i class="fa-solid fa-trash"></i></a>
-            <?php } ?>
-        </div>
         <?php
+        }
+    }else{
+        Session::addFlash('error',"Pas de message pour le moment");
     }
+
     if (Session::getUser()) {
         if ($isClosed == 0) {
         ?>

@@ -16,22 +16,32 @@ $topics = $result['data']['topics'];
         <h2>Activité : </h2>
         <div class="activite_container">
             <p>Dernier messages</p>
-            <?php foreach ($posts as $post) { ?>
-                <div class="post_container">
-                    <p><?= $post->getContenue() ?></p>
-                    <span><?= $post->getDateCreation() ?></span>
-                </div>
-            <?php } ?>
+
+            <?php if ($posts) {
+                foreach ($posts as $post) { ?>
+                    <div class="post_container">
+                        <p><?= $post->getContenue() ?></p>
+                        <span><?= $post->getDateCreation() ?></span>
+                    </div>
+            <?php }
+            } else {
+                echo "Pas d'activité";
+            } ?>
 
         </div>
         <div class="activite_container">
             <p>Dernier sujets</p>
-            <?php foreach ($topics as $topic) { ?>
-                <div class="post_container">
-                    <p><?= $topic->getTitle() ?></p>
-                    <span><?= $topic->getCreationdate() ?></span>
-                </div>
-            <?php } ?>
+
+            <?php if ($topics) {
+                foreach ($topics as $topic) { ?>
+                    <div class="post_container">
+                        <p><?= $topic->getTitle() ?></p>
+                        <span><?= $topic->getCreationdate() ?></span>
+                    </div>
+            <?php }
+            } else {
+                echo "Pas d'activité ";
+            } ?>
         </div>
 
     </div>

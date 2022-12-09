@@ -21,11 +21,10 @@ $categorys = $result["data"]['categorys'];
             // var_dump($category->getTitle());die;
 
         ?>
-            <div class="card">
-                <a href="index.php?ctrl=forum&action=findTopicsbyCat&id=<?= $category->getId() ?>">
-                    <h3><?= $category->getNomCategory() ?></h3>
-                </a>
-            </div>
+            <a href="index.php?ctrl=forum&action=findTopicsbyCat&id=<?= $category->getId() ?>">
+                <h3><?= $category->getNomCategory() ?></h3>
+                <h4>Topics : 15</h4>
+            </a>
         <?php
         } ?>
     </div>
