@@ -166,9 +166,20 @@ class SecurityController extends AbstractController implements ControllerInterfa
     {
         $TopicId = $_GET['idtopic'];
         $PostId = $_GET['idpost'];
-        var_dump($PostId);
+        // var_dump($PostId);
         $postmanager = new PostManager();
         $postmanager->deletePost($PostId);
         $this->redirectTo('forum', 'findPostbytopic', $TopicId);
+    }
+
+    // modifier role user (esapce admin)
+
+    public function editUserRole(){
+        $userId = $_GET['id'];
+        $role = filter_input(INPUT_POST, 'role_select', FILTER_SANITIZE_SPECIAL_CHARS);
+        // var_dump($role);die;
+        $userManager = new UserManager();
+        $userManager->updateRole($userId,$role);
+        $this->redirectTo('Home', 'users');
     }
 }

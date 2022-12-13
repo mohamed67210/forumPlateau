@@ -60,11 +60,18 @@ class UserManager extends Manager
     public function BannirUser($UserId)
     {
         $sql = "UPDATE user SET isBanish = 1 WHERE id_user = :userId";
-        return DAO::delete($sql, ['userId' => $UserId]); 
+        return DAO::update($sql, ['userId' => $UserId]); 
     }
     // activer le compte d'un user apres etre bannir
     public function ActiveUser($UserId){
         $sql = "UPDATE user SET isBanish = 0 WHERE id_user = :userId";
-        return DAO::delete($sql, ['userId' => $UserId]);
+        return DAO::update($sql, ['userId' => $UserId]);
+    }
+
+    // modifier role user 
+    public function updateRole($userId,$role){
+        $sql = "UPDATE user SET role = :role WHERE id_user= :userId";
+        return DAO::update($sql, ['role' => $role,'userId' => $userId]);
+
     }
 }

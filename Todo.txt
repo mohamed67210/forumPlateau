@@ -6,11 +6,13 @@ taches a faire :
     - verrouillage/deverrouillage de topic (fait)
     - bannir/activer des utilisateur (fait)
     - supprimer des message(fait)
-    -changer role user
+    -changer role user (fait)
 2) partie en commun
     - afficher profile de user connecter et voir ses derniers activité (fait)
     -afficher message a l'acceuil pour user banni (fait)
+    -pouvoir editer post (uniquement le post de l'user connecter ou si on est admin on modifie tout )
 
-3) liste topics : 
+
     -afficher nombre de messages par topics
-    - rendre le topic flou si il est verrouiller
+    - rendre le topic flou si il est verrouiller(fait)
+    -afficher nombre de topic dans listcategory

@@ -225,7 +225,7 @@ footer {
     padding: 10px;
     color: white;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -437,6 +437,10 @@ label {
     border: none;
     cursor: pointer;
 }
+.edit_btn p{
+    color: #36733A;
+    text-decoration: underline;
+}
 
 /* viewProfile */
 #view_prifile {
@@ -547,6 +551,24 @@ table tr td {
     padding: 5px;
     border-radius: 5px;
     font-weight: bold;
+}
+#form_editUser{
+    margin-top: 1rem;
+    border: 1px solid white;
+    border-radius: 2px ;
+    padding: 0.5rem;
+}
+#form_editUser select{
+    background-color: #325559;
+    color: white;
+    border: 1px solid white;
+}
+#form_editUser button{
+    width: 80%;
+    margin-top: 0.5rem;
+    background-color: #F28B50;
+    color: white;
+    border: none;
 }
 
 /* page home si l'user est banni on affiche */

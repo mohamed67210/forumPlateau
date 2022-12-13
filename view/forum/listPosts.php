@@ -28,6 +28,11 @@ if (isset($_GET['id'])) {
                 <div class="circle2"></div>
                 <div class="right">
                     <p><?= $post->getContenue() ?></p>
+                    <?php if (((Session::getUser()) == ($post->getUser())) || Session::isAdmin()) { ?>
+                        <a class="edit_btn" href="#">
+                            <p>edit</P>
+                        </a>
+                    <?php } ?>
                 </div>
                 <?php if (Session::isAdmin()) { ?>
                     <a class="red_btn" href="index.php?ctrl=security&action=deletePost&idpost=<?= $post->getId() ?>&idtopic=<?= $post->getTopic() ?>"><i class="fa-solid fa-trash"></i></a>
@@ -35,8 +40,8 @@ if (isset($_GET['id'])) {
             </div>
         <?php
         }
-    }else{
-        Session::addFlash('error',"Pas de message pour le moment");
+    } else {
+        Session::addFlash('error', "Pas de message pour le moment");
     }
 
     if (Session::getUser()) {
