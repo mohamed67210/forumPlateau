@@ -135,12 +135,15 @@ class ForumController extends AbstractController implements ControllerInterface
 
     public function viewProfile()
     {
+        $mail = $_GET['mail'];
+        $userManager = new UserManager();
         $postManager = new PostManager();
         $topicManager = new TopicManager();
         $id = Session::getUser()->getId();
         return [
             "view" => VIEW_DIR . "forum/viewProfile.php",
             "data" => [
+                "user" => $userManager->findUserByMail($mail),
                 "posts" => $postManager->findPostbyMail($id),
                 "topics" =>  $topicManager->findTopicbyMail($id,['creationdate','DESC'])
             ]

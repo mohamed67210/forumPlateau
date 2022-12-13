@@ -48,7 +48,7 @@
                         ?>
                                 <a href="index.php?ctrl=forum&action=listCategorys">la liste des Categorys</a>
                                 <a href="index.php?ctrl=forum&action=listTopics">la liste des topics</a>
-                                <a href="index.php?ctrl=forum&action=viewProfile"><i class="fa-solid fa-user"></i>&nbsp;<?= App\Session::getUser() ?></a>
+                                <a href="index.php?ctrl=forum&action=viewProfile&mail=<?= App\Session::getUser()->getMail() ?>"><i class="fa-solid fa-user"></i>&nbsp;<?= App\Session::getUser() ?></a>
                                 <a href="index.php?ctrl=security&action=logout">Déconnexion</a>
                             <?php
                             } else { ?>

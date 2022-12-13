@@ -18,7 +18,7 @@ $users = $result['data']['users'];
             $isBanish = $user->getIsBanish() ?>
             <tr>
                 <td><?= $user->getId(); ?></td>
-                <td><?= $user->getPseudo(); ?></td>
+                <td><a href="index.php?ctrl=forum&action=viewProfile&mail=<?= $user->getMail(); ?>"><?= $user->getPseudo(); ?></a></td>
                 <td><?= $user->getMail(); ?></td>
                 <td><?= $user->getDateCreation(); ?></td>
                 <td><?= $user->getRole(); ?></td>
