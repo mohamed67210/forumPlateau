@@ -9,7 +9,9 @@ $user = $result['data']['user'];
 ?>
 <div id="view_prifile">
     <div id="left">
-        <div id="user_circle"></div>
+        <div id="user_circle">
+            <img src="public/img/<?= $user->getimage() ?>" alt="avatar">
+        </div>
         <h5><?= $user->getPseudo() ?></h5>
         <h5><?= $user->getMail() ?></h5>
         <h5><?= $user->getRole() ?></h5>
