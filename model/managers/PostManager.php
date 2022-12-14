@@ -67,4 +67,9 @@ class PostManager extends Manager
         $postManager = new PostManager();
         $postManager->delete($id);
     }
+
+    public function updateContenue($contenue,$postId){
+        $sql = "UPDATE post SET contenue = :contenue WHERE id_post = :postId";
+        return DAO::update($sql, ['contenue' => $contenue,'postId' => $postId]);
+    }
 }

@@ -12,6 +12,7 @@ final class User extends Entity
     private $password;
     private $role;
     private $dateCreation;
+    private $image;
 
     public function __construct($data)
     {
@@ -76,11 +77,22 @@ final class User extends Entity
         $this->dateCreation = $date;
         return $this;
     }
-    public function getIsBanish(){
+    public function getIsBanish()
+    {
         return $this->isBanish;
     }
-    public function setIsBanish($isBanish){
+    public function setIsBanish($isBanish)
+    {
         $this->isBanish = $isBanish;
+        return $this;
+    }
+    public function getImage()
+    {
+        return $this->image;
+    }
+    public function setImage($image)
+    {
+        $this->image = $image;
         return $this;
     }
     public function hasRole($role)
@@ -92,7 +104,7 @@ final class User extends Entity
         }
     }
 
-    
+
 
 
     public function __toString()

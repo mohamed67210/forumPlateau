@@ -9,10 +9,13 @@ taches a faire :
     -changer role user (fait)
 2) partie en commun
     - afficher profile de user connecter et voir ses derniers activité (fait)
+    -afficher image de profile 
     -afficher message a l'acceuil pour user banni (fait)
     -pouvoir editer post (uniquement le post de l'user connecter ou si on est admin on modifie tout )
-
-
+    -pouvoir ajouter photo de profile au moment de sign up (fait)
     -afficher nombre de messages par topics
     - rendre le topic flou si il est verrouiller(fait)
     -afficher nombre de topic dans listcategory
+
+
+-rendre le site responsive

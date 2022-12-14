@@ -3,7 +3,7 @@ $users = $result["data"]['Users'];
 
 ?>
 <div id="container">
-    <form action="index.php?ctrl=security&action=addUser" method="post">
+    <form action="index.php?ctrl=security&action=addUser" method="post" enctype="multipart/form-data">
         <label>Mail :</label>
         <input type="email" name="mail" />
         <label>Pseudo :</label>
@@ -16,6 +16,7 @@ $users = $result["data"]['Users'];
             <option value="">Admin</option>
             <option value="">Membre</option>
         </select>
+        <input type="file" name="image" />
         <input type="submit" value="S'inscrire" name="submit" />
     </form>
 </div>

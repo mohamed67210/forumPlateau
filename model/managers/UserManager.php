@@ -27,11 +27,11 @@ class UserManager extends Manager
         $sql = "SELECT pseudo FROM user WHERE pseudo = :pseudo";
         return  DAO::select($sql, ['pseudo' => $pseudo]);
     }
-    public function addUser($mail, $pseudo, $password1, $password2)
+    public function addUser($mail, $pseudo, $password1, $image)
     {
         $userManager = new UserManager;
         $passwordHash = password_hash($password1, PASSWORD_DEFAULT);
-        $data = ['mail' => $mail, 'pseudo' => $pseudo, 'password' => $passwordHash];
+        $data = ['mail' => $mail, 'pseudo' => $pseudo, 'password' => $passwordHash,'image' =>$image];
         $userManager->add($data);
     }
 

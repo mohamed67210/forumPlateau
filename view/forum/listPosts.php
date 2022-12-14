@@ -27,14 +27,19 @@ if (isset($_GET['id'])) {
                 <div class="circle1"></div>
                 <div class="circle2"></div>
                 <div class="right">
-                    <p><?= $post->getContenue() ?></p>
-                    <?php if (((Session::getUser()) == ($post->getUser())) || Session::isAdmin()) { ?>
-                        <a class="edit_btn" href="#">
-                            <p>edit</P>
-                        </a>
-                    <?php } ?>
+                    <form action="index.php?ctrl=security&action=editPost&idpost=<?= $post->getId() ?>&idtopic=<?= $post->getTopic() ?>" method="post">
+                        <textarea name="contenue" readonly><?= $post->getContenue() ?></textarea>
+                        <?php if (((Session::getUser()) == ($post->getUser())) || Session::isAdmin()) { ?>
+                            <div id="edit_btns">
+                                <input id="edit_btn" value="edit" type="button">
+                                <button id='ok_btn' class="edit_btn" name="submit">
+                                    Ok
+                                </button>
+                            </div>
+                        <?php } ?>
+                    </form>
                 </div>
-                <?php if (Session::isAdmin()) { ?>
+                <?php if ((Session::isAdmin()) || ((Session::getUser()) == ($post->getUser()))) { ?>
                     <a class="red_btn" href="index.php?ctrl=security&action=deletePost&idpost=<?= $post->getId() ?>&idtopic=<?= $post->getTopic() ?>"><i class="fa-solid fa-trash"></i></a>
                 <?php } ?>
             </div>

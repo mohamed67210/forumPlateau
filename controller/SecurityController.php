@@ -31,8 +31,20 @@ class SecurityController extends AbstractController implements ControllerInterfa
     public function addUser()
     {
         if (isset($_POST['submit'])) {
-
-
+            // Récupération des données du formulaire
+            $image = $_FILES['image']['name'];
+            //On fait un tableau contenant les extensions autorisées.
+            //Comme il s'agit d'un avatar pour l'exemple, on ne prend que des extensions d'images.
+            $extensions = array('.png', '.gif', '.jpg', '.jpeg');
+            // récupère la partie de la chaine à partir du dernier . pour connaître l'extension.
+            $extension = strrchr($_FILES['image']['name'], '.');
+            //Ensuite on teste
+            if (!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
+            {
+                Session::addFlash('error', 'vous devez mettre une image valide !');
+                $this->redirectTo('security','registerform');
+            }
+            // var_dump($image);die;
             $mail = filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_SPECIAL_CHARS);
             $pseudo = filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_SPECIAL_CHARS);
             $password1 = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -49,8 +61,9 @@ class SecurityController extends AbstractController implements ControllerInterfa
                     if (!$userManager->CheckPseudo($pseudo)) {
                         //si les deux mot de passe identique
                         if ($password1 == $password2) {
-
-                            $userManager->addUser($mail, $pseudo, $password1, $password2);
+                            // Enregistrement de l'image sur le serveur
+                            move_uploaded_file($_FILES['image']['tmp_name'], "public/img/" . $image);
+                            $userManager->addUser($mail, $pseudo, $password1, $image);
                             $this->redirectTo('loginform');
                         } else {
                             Session::addFlash('error', 'mot de passe incorrecte !');
@@ -174,12 +187,26 @@ class SecurityController extends AbstractController implements ControllerInterfa
 
     // modifier role user (esapce admin)
 
-    public function editUserRole(){
+    public function editUserRole()
+    {
         $userId = $_GET['id'];
         $role = filter_input(INPUT_POST, 'role_select', FILTER_SANITIZE_SPECIAL_CHARS);
         // var_dump($role);die;
         $userManager = new UserManager();
-        $userManager->updateRole($userId,$role);
+        $userManager->updateRole($userId, $role);
         $this->redirectTo('Home', 'users');
+    }
+
+    public function editPost()
+    {
+        if (isset($_POST['submit'])) {
+            $TopicId = $_GET['idtopic'];
+            $postId = $_GET['idpost'];
+            $contenue = filter_input(INPUT_POST, 'contenue', FILTER_SANITIZE_SPECIAL_CHARS);
+            $postmanager = new PostManager();
+            $postmanager->updateContenue($contenue, $postId);
+            // var_dump($contenue);die;
+            $this->redirectTo('forum', 'findPostbytopic', $TopicId);
+        }
     }
 }

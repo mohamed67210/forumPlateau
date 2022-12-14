@@ -4,7 +4,7 @@ $categorys = $result["data"]['categorys'];
 
 ?>
 <?php if (App\Session::isAdmin()) { ?>
-    <div class="addtopic_form">
+    <div id="addcateg_form">
         <h1>nouvelle categorie</h1>
         <form action="index.php?ctrl=forum&action=addCategory" method="POST">
             <label>nom de la categorie :</label>
