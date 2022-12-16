@@ -1,3 +1,11 @@
+const menuIcon = document.getElementById("menu-icon");
+const nav = document.querySelector("#nav-right");
+
+menuIcon.addEventListener("click", () => {
+    console.log("clicked");
+    nav.classList.toggle("open");
+});
+
 
 let btnOk = document.getElementById('#ok_btn');
 let textarea = document.querySelectorAll('textarea');
@@ -13,3 +21,4 @@ for (i of editbtn) {
 
     })
 }
+

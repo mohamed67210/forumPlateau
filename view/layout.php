@@ -41,22 +41,28 @@
                         ?>
                     </div>
                     <div id="nav-right">
+                        <div id="menu-icon"><i class="fa-solid fa-bars"></i></div>
                         <?php
-
+                        // si l'user est connecter
                         if (App\Session::getUser()) {
+                            // si il est pas banni
                             if (App\Session::getUser()->getIsBanish() != 1) {
                         ?>
-                                <a href="index.php?ctrl=forum&action=listCategorys">la liste des Categorys</a>
-                                <a href="index.php?ctrl=forum&action=listTopics">la liste des topics</a>
-                                <a href="index.php?ctrl=forum&action=viewProfile&mail=<?= App\Session::getUser()->getMail() ?>"><i class="fa-solid fa-user"></i>&nbsp;<?= App\Session::getUser() ?></a>
-                                <a href="index.php?ctrl=security&action=logout">Déconnexion</a>
+                                <ul>
+                                    <li><a href="index.php?ctrl=forum&action=listCategorys">Categories</a></li>
+                                    <li><a href="index.php?ctrl=forum&action=listTopics">Sujets</a></li>
+                                    <li><a href="index.php?ctrl=forum&action=viewProfile&mail=<?= App\Session::getUser()->getMail() ?>"><i class="fa-solid fa-user"></i>&nbsp;<?= App\Session::getUser() ?></a></li>
+                                    <li><a href="index.php?ctrl=security&action=logout">Déconnexion</a></li>
+                                </ul>
                             <?php
                             } else { ?>
+                                <!-- si il est banni -->
                                 <a href="index.php?ctrl=security&action=logout">Déconnexion</a>
 
                             <?php }
                         } else {
                             ?>
+                            <!-- si il est pas cinnceté -->
                             <a href="index.php?ctrl=forum&action=listTopics">la liste des topics</a>
                             <a href="index.php?ctrl=forum&action=listCategorys">la liste des Categorys</a>
                             <a href="index.php?ctrl=security&action=loginform">Connexion</a>

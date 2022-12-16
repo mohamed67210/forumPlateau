@@ -28,6 +28,8 @@ header {
     align-items: center;
 }
 
+
+
 nav {
     display: flex;
     flex-direction: row;
@@ -99,6 +101,17 @@ nav {
     gap: 15px;
 }
 
+#nav-right ul {
+    display: flex;
+    /* background-color: yellow; */
+    flex-direction: row;
+    gap: 1rem;
+}
+
+ul li {
+    list-style-type: none;
+}
+
 #nav-right a {
     color: white;
     text-decoration: none;
@@ -107,11 +120,62 @@ nav {
     padding: 10px;
 }
 
+/* menuBurger */
+#menu-icon {
+    display: none;
+    cursor: pointer;
+    color: aliceblue;
+    font-size: xx-large;
+    margin-right: 5rem;
+}
+
+/* responsive liens nav */
+@media (max-width: 850px) {
+    #menu-icon {
+        display: block;
+    }
+
+    #nav-right ul {
+        display: none;
+    }
+
+    #nav-right.open ul {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.2rem;
+        top: 5rem;
+        right: 2rem;
+        width: 30%;
+        background-color: white;
+    }
+
+    #nav-right.open li a {
+        margin-top: 0.5rem;
+        opacity: 1;
+        transition: all 0.3s ease-in-out;
+        border: none;
+        /* background-color: #F28B50; */
+        width: 100%;
+        color: white;
+        font-weight: bold;
+    }
+
+    #nav-right.open li {
+        background-color: #F28B50;
+        width: 100%;
+        padding: 0.5rem;
+    }
+}
+
+
 h1 {
     color: #F28B50;
 }
 
-/* homepage */
+/* page accueil */
 #container_home {
     display: flex;
     flex-direction: column;
@@ -137,6 +201,12 @@ h1 {
     width: 80%;
     text-align: center;
     color: white;
+}
+@media (max-width: 750px) {
+    #container_home h1{
+        font-size: large;
+        text-align: center;
+    }
 }
 
 footer {
@@ -231,23 +301,27 @@ footer {
     align-items: center;
 
 }
-.card.posts .right form{
+
+.card.posts .right form {
     width: 100%;
     text-align: center;
 }
-.card.posts .right textarea{
+
+.card.posts .right textarea {
     background-color: transparent;
     border: none;
     resize: none;
-    min-height:80px;
-    max-width:70% ;
+    min-height: 80px;
+    max-width: 70%;
     min-width: 65%;
     color: white;
     padding: 0.3rem;
 }
-#edit_btns{
+
+#edit_btns {
     display: inline-block;
 }
+
 .message_container {
     background-color: red;
     color: white;
@@ -301,6 +375,7 @@ footer {
 label {
     color: white;
 }
+
 #addtopic_form form {
     display: flex;
     flex-direction: column;
@@ -356,7 +431,7 @@ label {
 }
 
 /* listes categorys */
-#addcateg_form{
+#addcateg_form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -365,6 +440,7 @@ label {
     border-radius: 5px;
     width: 60%;
 }
+
 #container_categorys {
     width: 90%;
     display: flex;
@@ -380,7 +456,7 @@ label {
     align-items: center;
     justify-content: center;
     width: 100%;
-    gap:10px;
+    gap: 10px;
 }
 
 #container_categorys a {
@@ -400,8 +476,9 @@ label {
     font-size: x-large;
     color: white;
 }
-#container_categorys a h4{
-    color:#F28B50;
+
+#container_categorys a h4 {
+    color: #F28B50;
 }
 
 /* messagerie  */
@@ -462,7 +539,8 @@ label {
     border: none;
     cursor: pointer;
 }
-.edit_btn p{
+
+.edit_btn p {
     color: #36733A;
     text-decoration: underline;
 }
@@ -502,11 +580,13 @@ label {
     justify-content: center;
     align-items: center;
 }
-#user_circle img{
+
+#user_circle img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 #right {
     width: 60%;
     background-color: #325559;
@@ -543,12 +623,13 @@ label {
 }
 
 /* liste des users  */
-#users_container{
+#users_container {
     width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 table {
     border: 1px solid white;
     width: 100%;
@@ -568,7 +649,8 @@ table tr td {
     padding: 15px;
     color: white;
 }
-table tr td a{
+
+table tr td a {
     color: #F28B50;
     font-weight: bold;
 }
@@ -594,18 +676,21 @@ table tr td a{
     border-radius: 5px;
     font-weight: bold;
 }
-#form_editUser{
+
+#form_editUser {
     margin-top: 1rem;
     border: 1px solid white;
-    border-radius: 2px ;
+    border-radius: 2px;
     padding: 0.5rem;
 }
-#form_editUser select{
+
+#form_editUser select {
     background-color: #325559;
     color: white;
     border: 1px solid white;
 }
-#form_editUser button{
+
+#form_editUser button {
     width: 80%;
     margin-top: 0.5rem;
     background-color: #F28B50;
