@@ -3,7 +3,7 @@ $users = $result["data"]['Users'];
 
 ?>
 <div id="container">
-    <form action="index.php?ctrl=security&action=addUser" method="post" enctype="multipart/form-data">
+    <form id="login_form" action="index.php?ctrl=security&action=addUser" method="post" enctype="multipart/form-data">
         <label>Mail :</label>
         <input type="email" name="mail" />
         <label>Pseudo :</label>
@@ -12,11 +12,8 @@ $users = $result["data"]['Users'];
         <input type="password" name="password1" />
         <label>repeter mot de passe :</label>
         <input type="password" name="password2" />
-        <select name="role">
-            <option value="">Admin</option>
-            <option value="">Membre</option>
-        </select>
+        <input name="role" value="membre" readonly hidden/>
         <input type="file" name="image" />
-        <input type="submit" value="S'inscrire" name="submit" />
+        <button type="submit" name="submit">Je m'inscris</button>
     </form>
 </div>

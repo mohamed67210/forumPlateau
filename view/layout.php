@@ -57,16 +57,20 @@
                             <?php
                             } else { ?>
                                 <!-- si il est banni -->
-                                <a href="index.php?ctrl=security&action=logout">Déconnexion</a>
+                                <ul>
+                                    <li><a href="index.php?ctrl=security&action=logout">Déconnexion</a></li>
+                                </ul>
 
                             <?php }
                         } else {
                             ?>
                             <!-- si il est pas cinnceté -->
-                            <a href="index.php?ctrl=forum&action=listTopics">la liste des topics</a>
-                            <a href="index.php?ctrl=forum&action=listCategorys">la liste des Categorys</a>
-                            <a href="index.php?ctrl=security&action=loginform">Connexion</a>
-                            <a href="index.php?ctrl=security&action=registerform">Inscription</a>
+                            <ul>
+                                <li><a href="index.php?ctrl=forum&action=listTopics">la liste des topics</a></li>
+                                <li><a href="index.php?ctrl=forum&action=listCategorys">la liste des Categorys</a></li>
+                                <li><a href="index.php?ctrl=security&action=loginform">Connexion</a></li>
+                                <li><a href="index.php?ctrl=security&action=registerform">Inscription</a></li>
+                            </ul>
                         <?php
                         }
                         ?>

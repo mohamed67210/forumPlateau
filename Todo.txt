@@ -7,6 +7,7 @@ taches a faire :
     - bannir/activer des utilisateur (fait)
     - supprimer des message(fait)
     -changer role user (fait)
+    -supprimer topic (fait)
 2) partie en commun
     - afficher profile de user connecter et voir ses derniers activité (fait)
     -afficher image de profile 
@@ -18,4 +19,5 @@ taches a faire :
     -afficher nombre de topic dans listcategory
 
 
--rendre le site responsive
+-rendre le site responsive:
+menu burger (fait)

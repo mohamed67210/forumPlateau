@@ -72,4 +72,10 @@ class PostManager extends Manager
         $sql = "UPDATE post SET contenue = :contenue WHERE id_post = :postId";
         return DAO::update($sql, ['contenue' => $contenue,'postId' => $postId]);
     }
+
+    // supprimer tout les posts d'un topic
+    public function deletePostsbyTopic($topicId){
+        $sql = "DELETE  FROM post WHERE topic_id = :topicId ";
+        return DAO::delete($sql,['topicId' => $topicId]);
+    }
 }

@@ -59,7 +59,7 @@ if (isset($_GET['id'])) {
                                 <?php } else { ?>
                                     <a href="index.php?ctrl=security&action=closeTopic&id=<?= $topic->getId() ?>">Deverrouiller</a>
                                 <?php } ?>
-
+                                <a class="red_btn" href="index.php?ctrl=security&action=deleteTopic&id=<?= $topic->getId() ?>">supprimer</a>
                             </div>
                         <?php } ?>
 

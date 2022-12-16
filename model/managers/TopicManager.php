@@ -72,4 +72,10 @@ class TopicManager extends Manager
         $sql = "UPDATE topic SET closed = 1 WHERE id_topic = :topicId";
         return DAO::delete($sql, ['topicId' => $topicId]);
     }
+
+    public function deleteTopic($topicId){
+        $id = $topicId;
+        $topicManager = new TopicManager();
+        $topicManager->delete($id);
+    }
 }

@@ -42,7 +42,7 @@ class SecurityController extends AbstractController implements ControllerInterfa
             if (!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
             {
                 Session::addFlash('error', 'vous devez mettre une image valide !');
-                $this->redirectTo('security','registerform');
+                $this->redirectTo('security', 'registerform');
             }
             // var_dump($image);die;
             $mail = filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -174,6 +174,17 @@ class SecurityController extends AbstractController implements ControllerInterfa
         $this->redirectTo('Forum', 'listTopics');
     }
 
+    // supprimer topic (admin)
+    public function deleteTopic(){
+        $topicId = $_GET['id'];
+        $topicmanager = new TopicManager();
+        $postmanager = new PostManager();
+        $postmanager->deletePostsbyTopic($topicId);
+        $topicmanager->deleteTopic($topicId);
+
+        $this->redirectTo('Forum', 'listTopics');
+    }
+
     // supprimer message
     public function deletePost()
     {
@@ -196,7 +207,7 @@ class SecurityController extends AbstractController implements ControllerInterfa
         $userManager->updateRole($userId, $role);
         $this->redirectTo('Home', 'users');
     }
-
+    // modifier le contenue demessage
     public function editPost()
     {
         if (isset($_POST['submit'])) {
@@ -209,4 +220,6 @@ class SecurityController extends AbstractController implements ControllerInterfa
             $this->redirectTo('forum', 'findPostbytopic', $TopicId);
         }
     }
+
+    
 }
