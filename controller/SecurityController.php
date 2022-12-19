@@ -33,13 +33,17 @@ class SecurityController extends AbstractController implements ControllerInterfa
         if (isset($_POST['submit'])) {
             // Récupération des données du formulaire
             $image = $_FILES['image']['name'];
+            // size de l'image
+            $image_size = $_FILES['image']['size'];
+            // definir max size 
+            $maxsize    = 5000000;
             //On fait un tableau contenant les extensions autorisées.
             //Comme il s'agit d'un avatar pour l'exemple, on ne prend que des extensions d'images.
             $extensions = array('.png', '.gif', '.jpg', '.jpeg');
             // récupère la partie de la chaine à partir du dernier . pour connaître l'extension.
             $extension = strrchr($_FILES['image']['name'], '.');
             //Ensuite on teste
-            if (!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
+            if ((!in_array($extension, $extensions)) || $image_size > $maxsize ) //Si l'extension n'est pas dans le tableau ou si le size de l'image est trop elever
             {
                 Session::addFlash('error', 'vous devez mettre une image valide !');
                 $this->redirectTo('security', 'registerform');
@@ -175,7 +179,8 @@ class SecurityController extends AbstractController implements ControllerInterfa
     }
 
     // supprimer topic (admin)
-    public function deleteTopic(){
+    public function deleteTopic()
+    {
         $topicId = $_GET['id'];
         $topicmanager = new TopicManager();
         $postmanager = new PostManager();
@@ -220,6 +225,4 @@ class SecurityController extends AbstractController implements ControllerInterfa
             $this->redirectTo('forum', 'findPostbytopic', $TopicId);
         }
     }
-
-    
 }
