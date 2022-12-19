@@ -17,6 +17,7 @@ taches a faire :
     -afficher nombre de messages par topics
     - rendre le topic flou si il est verrouiller(fait)
     -afficher nombre de topic dans listcategory
+    -modifier peudo et photo (user connecté)
 
 
 -rendre le site responsive:
